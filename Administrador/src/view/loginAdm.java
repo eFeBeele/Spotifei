@@ -4,6 +4,7 @@
  */
 package view;
 
+import control.*;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -12,12 +13,13 @@ import javax.swing.JTextField;
  * @author unifflopes
  */
 public class loginAdm extends javax.swing.JFrame {
-
+    private ControllerLoginADM cLoginADM;
     /**
      * Creates new form Janela_1
      */
     public loginAdm() {
         initComponents();
+        cLoginADM = new ControllerLoginADM(this);
     }
 
     /**
@@ -31,8 +33,6 @@ public class loginAdm extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         bt_login_adm = new javax.swing.JButton();
-        txt_usuario_login_adm = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         txt_email_login_adm = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -49,14 +49,6 @@ public class loginAdm extends javax.swing.JFrame {
                 bt_login_admActionPerformed(evt);
             }
         });
-
-        txt_usuario_login_adm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_usuario_login_admActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Usuario:");
 
         txt_email_login_adm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,13 +77,11 @@ public class loginAdm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_usuario_login_adm, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                    .addComponent(txt_email_login_adm)
+                    .addComponent(txt_email_login_adm, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                     .addComponent(txt_senha_login_adm))
                 .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -103,11 +93,7 @@ public class loginAdm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_usuario_login_adm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt_email_login_adm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -123,10 +109,6 @@ public class loginAdm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_usuario_login_admActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuario_login_admActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_usuario_login_admActionPerformed
-
     private void txt_email_login_admActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_email_login_admActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_email_login_admActionPerformed
@@ -138,7 +120,7 @@ public class loginAdm extends javax.swing.JFrame {
   
     // Botao de login, faz o procedimento de login e rerireciona a aplicacao 
     private void bt_login_admActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_login_admActionPerformed
-        
+        cLoginADM.login();
     }//GEN-LAST:event_bt_login_admActionPerformed
 
     /**
@@ -182,12 +164,10 @@ public class loginAdm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_login_adm;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txt_email_login_adm;
     private javax.swing.JTextField txt_senha_login_adm;
-    private javax.swing.JTextField txt_usuario_login_adm;
     // End of variables declaration//GEN-END:variables
 
     public JTextField getTxt_email_login_adm() {
@@ -197,8 +177,6 @@ public class loginAdm extends javax.swing.JFrame {
     public JTextField getTxt_senha_login_adm() {
         return txt_senha_login_adm;
     }
-
-    public JTextField getTxt_usuario_login_adm() {
-        return txt_usuario_login_adm;
-    }
+    
+    
 }
