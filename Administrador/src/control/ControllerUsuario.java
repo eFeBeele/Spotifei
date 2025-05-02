@@ -32,7 +32,7 @@ public class ControllerUsuario {
             
             ResultSet res = usrDAO.consultar(nome);
             if(res.next()){
-                Usuario usr2 = new Usuario(res.getString("nome_usuario"), res.getString("senha"), res.getString("email"));
+                Usuario usr2 = new Usuario(res.getString("nome_usuario"), res.getString("email"), res.getString("senha"));
                 view.getTxt_info_usuario().setText(usr2.info());
             }else{
                 JOptionPane.showMessageDialog(view, 
