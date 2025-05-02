@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Arthur
@@ -13,15 +15,12 @@ public class Musica {
     private String nome_musica;
     private String nome_artista;
     private String genero;
-    private int curtidas;
-    private int descurtidas;
-    private int duracao;
+    private String curtidas;
+    private String descurtidas;
+    private String duracao;
 
-    public Musica(int id_musica, String nome_musica, String nome_artista, String genero, int curtidas, int descurtidas, int duracao) {
-        this.id_musica = id_musica;
+    public Musica(String nome_musica, String curtidas, String descurtidas, String duracao) {
         this.nome_musica = nome_musica;
-        this.nome_artista = nome_artista;
-        this.genero = genero;
         this.curtidas = curtidas;
         this.descurtidas = descurtidas;
         this.duracao = duracao;
@@ -57,6 +56,15 @@ public class Musica {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+    
+    public String infoMusicas(){
+
+        return  "\nNome: " + nome_musica +
+                "\nCurtidas: " + curtidas +
+                "\nDescurtidas: " + descurtidas +
+                "\nDuração: " + duracao +
+                "\n------------------------\n";
     }
 
     @Override

@@ -18,7 +18,7 @@ public class MusicaDAO {
     }
     
     public ResultSet top5MusicasCurtidas() throws SQLException{
-        String sql = "SELECT nome_musica, curtidas\n" +
+        String sql = "SELECT nome_musica, curtidas, descurtidas, duracao\n" +
                      "FROM prod.musica\n" +
                      "ORDER BY curtidas DESC\n" +
                      "LIMIT 5;";
@@ -31,7 +31,7 @@ public class MusicaDAO {
     }
     
     public ResultSet top5MusicasDescurtidas() throws SQLException{
-        String sql = "SELECT nome_musica, descurtidas\n" +
+        String sql = "SELECT nome_musica, curtidas, descurtidas, duracao\n" +
                      "FROM prod.musica\n" +
                      "ORDER BY descurtidas DESC\n" +
                      "LIMIT 5;";

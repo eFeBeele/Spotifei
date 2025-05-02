@@ -23,7 +23,7 @@ public class ControllerEstastisticas {
     }
    
     
-    public void login(){
+    public void consultar(){
         Conexao conexao = new Conexao();
         
         try{
@@ -36,13 +36,51 @@ public class ControllerEstastisticas {
             ResultSet resTop5Curtidas = muscDAO.top5MusicasCurtidas();
             ResultSet resTop5Descurtidas = muscDAO.top5MusicasDescurtidas();
             
-            view.getLbl_musicas().setText(resTotalMusc.toString());
-            view.getLbl_usuarios().setText(resTotalUsr.toString());
+            // Total de Users
+            if (resTotalUsr.next()) {
+                view.getLbl_usuarios().setText(resTotalUsr.getString("total_usuarios"));
+            }
             
+            // Total de musicas
+            if (resTotalMusc.next()) {
+                view.getLbl_musicas().setText(resTotalMusc.getString("total_musicas"));
+            }
             
+            // Top 5 musicas curtidas
             ArrayList<Musica> musicasCurtidas = new ArrayList();
+            while(resTop5Curtidas.next()){
+                String nome = resTop5Curtidas.getString("nome_musica");
+                String curtidas = resTop5Curtidas.getString("curtidas");
+                String descurtidas = resTop5Curtidas.getString("descurtidas");
+                String duracao = resTop5Curtidas.getString("duracao");
+                
+                Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
+                musicasCurtidas.add(musc);
+            }
+            String resultado = "";
+            for(int i=0; i<musicasCurtidas.size(); i++){
+                resultado += musicasCurtidas.get(i).infoMusicas();
+            }
+            view.getTxt_musicas_curtidas().setText(resultado);
             
             
+            
+            // Top 5 musicas descurtidas
+            ArrayList<Musica> musicasDescurtidas = new ArrayList();
+            while(resTop5Descurtidas.next()){
+                String nome = resTop5Descurtidas.getString("nome_musica");
+                String curtidas = resTop5Descurtidas.getString("curtidas");
+                String descurtidas = resTop5Descurtidas.getString("descurtidas");
+                String duracao = resTop5Descurtidas.getString("duracao");
+                
+                Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
+                musicasDescurtidas.add(musc);
+            }
+            String resultado2 = "";
+            for(int i=0; i<musicasDescurtidas.size(); i++){
+                resultado2 += musicasDescurtidas.get(i).infoMusicas();
+            }
+            view.getTxt_musicas_descurtidas().setText(resultado2);
         }catch(SQLException e){
             JOptionPane.showMessageDialog(view, 
                                               e, 
