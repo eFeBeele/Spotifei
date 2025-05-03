@@ -54,8 +54,8 @@ public class ControllerEstastisticas {
                 String descurtidas = resTop5Curtidas.getString("descurtidas");
                 String duracao = resTop5Curtidas.getString("duracao");
                 
-                Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
-                musicasCurtidas.add(musc);
+                //Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
+                //musicasCurtidas.add(musc);
             }
             String resultado = "";
             for(int i=0; i<musicasCurtidas.size(); i++){
@@ -73,8 +73,8 @@ public class ControllerEstastisticas {
                 String descurtidas = resTop5Descurtidas.getString("descurtidas");
                 String duracao = resTop5Descurtidas.getString("duracao");
                 
-                Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
-                musicasDescurtidas.add(musc);
+                //Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
+                //musicasDescurtidas.add(musc);
             }
             String resultado2 = "";
             for(int i=0; i<musicasDescurtidas.size(); i++){

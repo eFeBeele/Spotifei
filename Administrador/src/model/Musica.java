@@ -13,17 +13,18 @@ import java.util.ArrayList;
 public class Musica {
     private int id_musica;
     private String nome_musica;
-    private String nome_artista;
+    private Artista artista;
     private String genero;
     private String curtidas;
     private String descurtidas;
     private String duracao;
 
-    public Musica(String nome_musica, String curtidas, String descurtidas, String duracao) {
+    public Musica(String nome_musica, String curtidas, String descurtidas, String duracao, String nome_artista) {
         this.nome_musica = nome_musica;
         this.curtidas = curtidas;
         this.descurtidas = descurtidas;
         this.duracao = duracao;
+        this.artista = new Artista(nome_artista);
     }
     
     public int getId_musica() {
@@ -40,14 +41,6 @@ public class Musica {
 
     public void setNome_musica(String nome_musica) {
         this.nome_musica = nome_musica;
-    }
-
-    public String getNome_artista() {
-        return nome_artista;
-    }
-
-    public void setNome_artista(String nome_artista) {
-        this.nome_artista = nome_artista;
     }
 
     public String getGenero() {
@@ -69,6 +62,6 @@ public class Musica {
 
     @Override
     public String toString() {
-        return "Musica{" + "id_musica=" + id_musica + ", nome_musica=" + nome_musica + ", nome_artista=" + nome_artista + ", genero=" + genero + '}';
+        return "Musica{" + "id_musica=" + id_musica + ", nome_musica=" + nome_musica + ", nome_artista=" + artista.getNome() + ", genero=" + genero + '}';
     }
 }

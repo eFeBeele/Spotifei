@@ -18,6 +18,7 @@ public class menuAdm extends javax.swing.JFrame {
     
     private ControllerUsuario cUsr;
     private ControllerEstastisticas cEstat;
+    private ControllerArtista cArt;
     /**
      * Creates new form menuAdm
      */
@@ -25,7 +26,9 @@ public class menuAdm extends javax.swing.JFrame {
         initComponents();
         cUsr = new ControllerUsuario(this);
         cEstat = new ControllerEstastisticas(this);
+        cArt = new ControllerArtista(this);
         cEstat.consultar();
+        cArt.consultar();
     }
 
     /**
@@ -436,7 +439,7 @@ public class menuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nome_musicaActionPerformed
     
     private void bt_cadastrar_artistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cadastrar_artistaActionPerformed
-        // TODO add your handling code here:
+        cArt.adicionarArtista();
     }//GEN-LAST:event_bt_cadastrar_artistaActionPerformed
 
     private void txt_nome_artistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nome_artistaActionPerformed
@@ -444,7 +447,7 @@ public class menuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nome_artistaActionPerformed
 
     private void bt_excluir_artistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_excluir_artistaActionPerformed
-        // TODO add your handling code here:
+        cArt.excluirArtista();
     }//GEN-LAST:event_bt_excluir_artistaActionPerformed
 
     private void bt_cadastrar_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cadastrar_musicaActionPerformed
