@@ -8,24 +8,20 @@ package model;
  *
  * @author Arthur
  */
-public class Usuario {
-    private String nome_usuario;
+public class Usuario extends Pessoa implements Autenticacao{
     private String email;
     private String senha;
 
     public Usuario(String nome_usuario, String email, String senha) {
-        this.nome_usuario = nome_usuario;
+        super(nome_usuario);
         this.email = email;
         this.senha = senha;
     }
-
-    public String getNome_usuario() {
-        return nome_usuario;
+    
+    public Usuario(String nome_usuario) {
+        super(nome_usuario);
     }
 
-    public void setNome_usuario(String nome_usuario) {
-        this.nome_usuario = nome_usuario;
-    }
 
     public String getEmail() {
         return email;
@@ -43,7 +39,12 @@ public class Usuario {
         this.senha = senha;
     }
     
+    @Override
+    public boolean login(String senha) {
+        return this.senha.equals(senha);
+    }
+    
     public String info(){
-        return "Usuário: \nNome do usuario: " + nome_usuario + "\nSenha: " + senha + "\nE-Mail: " + email;
+        return "Usuário: \nNome do usuario: " + super.getNome() + "\nSenha: " + senha + "\nE-Mail: " + email;
     }
 }

@@ -22,38 +22,48 @@ public class ControllerLoginADM {
         this.view = view;
     }
     
-    public void login(){
+    public void login() {
         String email = view.getTxt_email_login_adm().getText();
-        String senha = view.getTxt_senha_login_adm().getText();
+        String senhaDigitada = view.getTxt_senha_login_adm().getText();
         Conexao conexao = new Conexao();
-        
-        try{
-            Connection conn = conexao.getConnection();
+
+        try (Connection conn = conexao.getConnection()) {
             UsuarioDAO usrDAO = new UsuarioDAO(conn);
-            
-            ResultSet res = usrDAO.loginADM(email, senha);
-            
-            if(res.next()){
-                menuAdm mADM = new menuAdm();
-                mADM.setVisible(true);
-                view.setVisible(false);
+            ResultSet res = usrDAO.loginADM(new Admin(email));
+
+            if (res.next()) {
+                Autenticacao admCorreto = new Admin(
+                    res.getString("nome_usuario"),
+                    res.getString("email"),
+                    res.getString("senha")
+                );
+
+                if (admCorreto.login(senhaDigitada)) {
+                    menuAdm mADM = new menuAdm();
+                    mADM.setVisible(true);
+                    view.setVisible(false);
+                    JOptionPane.showMessageDialog(view, 
+                                                  "Login efetuado com sucesso", 
+                                                  "Aviso",
+                                                  JOptionPane.OK_OPTION);
+                } else {
+                    JOptionPane.showMessageDialog(view, 
+                                                  "Senha incorreta", 
+                                                  "Erro",
+                                                  JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
                 JOptionPane.showMessageDialog(view, 
-                                              "Login efetuado com sucesso", 
-                                              "Aviso",
-                                              JOptionPane.OK_OPTION);
-            }else{
-                JOptionPane.showMessageDialog(view, 
-                                              "Login não efetuado tente novamente", 
-                                              "Aviso",
+                                              "Administrador não encontrado", 
+                                              "Erro",
                                               JOptionPane.ERROR_MESSAGE);
             }
-        }catch(SQLException e){
+
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(view, 
-                                              e, 
-                                              "Aviso",
-                                              JOptionPane.ERROR_MESSAGE);
-        }      
+                                          e.getMessage(), 
+                                          "Erro",
+                                          JOptionPane.ERROR_MESSAGE);
+        }
     }
-    
-    
-}
+}  

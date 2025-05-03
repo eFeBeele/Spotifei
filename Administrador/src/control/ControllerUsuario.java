@@ -30,7 +30,7 @@ public class ControllerUsuario {
             Connection conn = conexao.getConnection();
             UsuarioDAO usrDAO = new UsuarioDAO(conn);
             
-            ResultSet res = usrDAO.consultar(nome);
+            ResultSet res = usrDAO.consultar(new Usuario(nome));
             if(res.next()){
                 Usuario usr2 = new Usuario(res.getString("nome_usuario"), res.getString("email"), res.getString("senha"));
                 view.getTxt_info_usuario().setText(usr2.info());

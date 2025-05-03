@@ -5,7 +5,7 @@
 package DAO;
 
 import java.sql.*;
-import model.Usuario;
+import model.*;
 
 /**
  *
@@ -18,10 +18,10 @@ public class UsuarioDAO {
         this.conn = conn;
     }
     
-    public ResultSet consultar(String nome) throws SQLException{
+    public ResultSet consultar(Usuario usr) throws SQLException{
         String sql = "select * from prod.usuario where nome_usuario = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, nome);
+        statement.setString(1, usr.getNome());
         
         statement.execute();
         ResultSet resultado = statement.getResultSet();
@@ -29,11 +29,10 @@ public class UsuarioDAO {
         return resultado;
     }
     
-    public ResultSet loginADM(String email, String senha) throws SQLException{
-        String sql = "select * from prod.usuario where email = ? AND senha = ? AND adm = true";
+    public ResultSet loginADM(Admin adm) throws SQLException{
+        String sql = "select * from prod.usuario where email = ? AND adm = true";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, email);
-        statement.setString(2, senha);
+        statement.setString(1, adm.getEmail());
         
         statement.execute();
         ResultSet resultado = statement.getResultSet();
