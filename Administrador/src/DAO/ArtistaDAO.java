@@ -25,9 +25,9 @@ public class ArtistaDAO {
     }
     
     public void excluir(String nome_digitado) throws SQLException{
-        String sql = "Delete from prod.artista where nome_artista = ?";
-                      
+        String sql = "Delete from prod.artista where nome_artista = ?";      
         PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, nome_digitado);        
         statement.execute();
         conn.close();
     }

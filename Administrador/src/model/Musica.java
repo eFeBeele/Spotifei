@@ -1,46 +1,81 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-import java.util.ArrayList;
-
-/**
- *
- * @author Arthur
- */
 public class Musica {
-    private int id_musica;
-    private String nome_musica;
+    private int idMusica;
+    private String nomeMusica;
     private Artista artista;
-    private String genero;
-    private String curtidas;
-    private String descurtidas;
+    private String genero; 
+    private int curtidas;
+    private int descurtidas;
     private String duracao;
 
-    public Musica(String nome_musica, String curtidas, String descurtidas, String duracao, String nome_artista) {
-        this.nome_musica = nome_musica;
+    public Musica(int idMusica, String nomeMusica, int curtidas, int descurtidas, String duracao, Artista artista, String genero) {
+        this.idMusica = idMusica;
+        this.nomeMusica = nomeMusica;
         this.curtidas = curtidas;
         this.descurtidas = descurtidas;
         this.duracao = duracao;
-        this.artista = new Artista(nome_artista);
+        this.artista = artista;
+        this.genero = genero;
+    }
+
+    public Musica(String nomeMusica, int curtidas, int descurtidas, String duracao, Artista artista, String genero) {
+        this(-1, nomeMusica, curtidas, descurtidas, duracao, artista, genero);
     }
     
-    public int getId_musica() {
-        return id_musica;
+    public Musica(String nomeMusica, int curtidas, int descurtidas, String duracao){
+        this.nomeMusica = nomeMusica;
+        this.curtidas = curtidas;
+        this.descurtidas = descurtidas;
+        this.duracao = duracao;
     }
 
-    public void setId_musica(int id_musica) {
-        this.id_musica = id_musica;
+    public int getIdMusica() {
+        return idMusica;
     }
 
-    public String getNome_musica() {
-        return nome_musica;
+    public void setIdMusica(int idMusica) {
+        this.idMusica = idMusica;
     }
 
-    public void setNome_musica(String nome_musica) {
-        this.nome_musica = nome_musica;
+    public String getNomeMusica() {
+        return nomeMusica;
+    }
+
+    public void setNomeMusica(String nomeMusica) {
+        this.nomeMusica = nomeMusica;
+    }
+
+    public int getCurtidas() {
+        return curtidas;
+    }
+
+    public void setCurtidas(int curtidas) {
+        this.curtidas = curtidas;
+    }
+
+    public int getDescurtidas() {
+        return descurtidas;
+    }
+
+    public void setDescurtidas(int descurtidas) {
+        this.descurtidas = descurtidas;
+    }
+
+    public String getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
+    }
+
+    public Artista getArtista() {
+        return artista;
+    }
+
+    public void setArtista(Artista artista) {
+        this.artista = artista;
     }
 
     public String getGenero() {
@@ -50,10 +85,20 @@ public class Musica {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-    
-    public String infoMusicas(){
 
-        return  "\nNome: " + nome_musica +
+    public String infoMusicasCompleta() {
+        return  "Id: " + idMusica +
+                "\nNome: " + nomeMusica +
+                "\nArtista: " + artista.getNome() +
+                "\nGênero: " + genero +
+                "\nCurtidas: " + curtidas +
+                "\nDescurtidas: " + descurtidas +
+                "\nDuração: " + duracao +
+                "\n------------------------\n";
+    }
+    
+    public String infoMusicas() {
+        return  "Nome: " + nomeMusica +
                 "\nCurtidas: " + curtidas +
                 "\nDescurtidas: " + descurtidas +
                 "\nDuração: " + duracao +
@@ -62,6 +107,6 @@ public class Musica {
 
     @Override
     public String toString() {
-        return "Musica{" + "id_musica=" + id_musica + ", nome_musica=" + nome_musica + ", nome_artista=" + artista.getNome() + ", genero=" + genero + '}';
+        return nomeMusica + " - " + artista.getNome() + " (" + genero + ")";
     }
 }

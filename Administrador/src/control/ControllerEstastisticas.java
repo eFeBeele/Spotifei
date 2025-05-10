@@ -50,12 +50,12 @@ public class ControllerEstastisticas {
             ArrayList<Musica> musicasCurtidas = new ArrayList();
             while(resTop5Curtidas.next()){
                 String nome = resTop5Curtidas.getString("nome_musica");
-                String curtidas = resTop5Curtidas.getString("curtidas");
-                String descurtidas = resTop5Curtidas.getString("descurtidas");
+                int curtidas = resTop5Curtidas.getInt("curtidas");
+                int descurtidas = resTop5Curtidas.getInt("descurtidas");
                 String duracao = resTop5Curtidas.getString("duracao");
                 
-                //Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
-                //musicasCurtidas.add(musc);
+                Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
+                musicasCurtidas.add(musc);
             }
             String resultado = "";
             for(int i=0; i<musicasCurtidas.size(); i++){
@@ -69,12 +69,12 @@ public class ControllerEstastisticas {
             ArrayList<Musica> musicasDescurtidas = new ArrayList();
             while(resTop5Descurtidas.next()){
                 String nome = resTop5Descurtidas.getString("nome_musica");
-                String curtidas = resTop5Descurtidas.getString("curtidas");
-                String descurtidas = resTop5Descurtidas.getString("descurtidas");
+                int curtidas = resTop5Descurtidas.getInt("curtidas");
+                int descurtidas = resTop5Descurtidas.getInt("descurtidas");
                 String duracao = resTop5Descurtidas.getString("duracao");
                 
-                //Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
-                //musicasDescurtidas.add(musc);
+                Musica musc = new Musica(nome, curtidas, descurtidas, duracao);
+                musicasDescurtidas.add(musc);
             }
             String resultado2 = "";
             for(int i=0; i<musicasDescurtidas.size(); i++){
@@ -87,5 +87,81 @@ public class ControllerEstastisticas {
                                               "Aviso",
                                               JOptionPane.ERROR_MESSAGE);
         }      
+    }
+    
+    public void mostrarTodasMusicas(){
+        Conexao conexao = new Conexao();
+        
+        try{
+            Connection conn = conexao.getConnection();
+            MusicaDAO muscDAO = new MusicaDAO(conn);
+            
+            ResultSet resInfoMusicas = muscDAO.exibirTodasMusicas();
+            ArrayList<Musica> musicas = new ArrayList <>();
+            
+            while(resInfoMusicas.next()){
+                int idMusica = resInfoMusicas.getInt("id_musica");
+                String nomeMusica = resInfoMusicas.getString("nome_musica");
+                int curtidas = resInfoMusicas.getInt("curtidas");
+                int descurtidas = resInfoMusicas.getInt("descurtidas");
+                String duracao = resInfoMusicas.getString("duracao");
+                String nomeArtista = resInfoMusicas.getString("nome_artista");
+                String genero = resInfoMusicas.getString("genero");
+                
+                musicas.add(new Musica(idMusica, nomeMusica, curtidas, descurtidas, duracao, new Artista(nomeArtista), genero));
+            }
+            
+            String resultado3 = "";
+            for(Musica m : musicas){
+                resultado3 += m.infoMusicasCompleta();
+            }
+            
+            view.getTxt_musicas().setText(resultado3);
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(view, 
+                                              e, 
+                                              "Aviso",
+                                              JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
+    public void detetarMusica(){
+        Conexao conexao = new Conexao();
+        
+        try{
+            Connection conn = conexao.getConnection();
+            MusicaDAO muscDAO = new MusicaDAO(conn);
+            muscDAO.excluirMusica(Integer.parseInt(view.getTxt_id_musica().getText()));
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(view, 
+                                              e, 
+                                              "Aviso",
+                                              JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void adicionarMusica(){
+        Conexao conexao = new Conexao();
+        
+        try{
+            Connection conn = conexao.getConnection();
+            MusicaDAO muscDAO = new MusicaDAO(conn);
+            String nomeMusica = view.getTxt_nome_musica().getText();
+            int curtidas = 0;
+            int descurtidas = 0;
+            String duracao = view.getTxt_duracao_minutos_musica().getText() + " minutes " + view.getTxt_duracao_segundos_musica().getText() + " seconds";
+            Artista artista = new Artista(view.getTxt_artista_musica().getText());
+            String genero = view.getTxt_genero_musica().getText();
+            
+            Musica musc = new Musica(nomeMusica, curtidas, descurtidas, duracao, artista, genero);
+            muscDAO.adicionarMusica(musc);
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(view, 
+                                              e, 
+                                              "Aviso",
+                                              JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

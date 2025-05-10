@@ -28,6 +28,7 @@ public class menuAdm extends javax.swing.JFrame {
         cEstat = new ControllerEstastisticas(this);
         cArt = new ControllerArtista(this);
         cEstat.consultar();
+        cEstat.mostrarTodasMusicas();
         cArt.consultar();
     }
 
@@ -70,11 +71,16 @@ public class menuAdm extends javax.swing.JFrame {
         bt_excluir_musica = new javax.swing.JButton();
         bt_cadastrar_musica = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        txt_duracao_musica = new javax.swing.JTextField();
+        txt_duracao_minutos_musica = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txt_artista_musica = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txt_genero_musica = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txt_id_musica = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        txt_duracao_segundos_musica = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         txt_nome_usuario = new javax.swing.JTextField();
@@ -149,7 +155,7 @@ public class menuAdm extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_usuarios))
@@ -232,7 +238,7 @@ public class menuAdm extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(15, Short.MAX_VALUE))
+                        .addContainerGap(16, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -279,9 +285,9 @@ public class menuAdm extends javax.swing.JFrame {
 
         jLabel10.setText("Duração:");
 
-        txt_duracao_musica.addActionListener(new java.awt.event.ActionListener() {
+        txt_duracao_minutos_musica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_duracao_musicaActionPerformed(evt);
+                txt_duracao_minutos_musicaActionPerformed(evt);
             }
         });
 
@@ -301,67 +307,112 @@ public class menuAdm extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setText("ID:");
+
+        txt_id_musica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_musicaActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Minutos:");
+
+        jLabel15.setText("Segundos:");
+
+        txt_duracao_segundos_musica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_duracao_segundos_musicaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_nome_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(bt_cadastrar_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addComponent(bt_excluir_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_artista_musica)
-                            .addComponent(txt_duracao_musica, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-                            .addComponent(txt_genero_musica))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel12)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addGap(12, 12, 12)
+                                            .addComponent(jLabel14)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txt_duracao_minutos_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel15)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txt_duracao_segundos_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_artista_musica)
+                                            .addComponent(txt_genero_musica)
+                                            .addComponent(txt_id_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_nome_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addComponent(bt_excluir_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addComponent(bt_cadastrar_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel10))))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txt_nome_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txt_duracao_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_artista_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_genero_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_cadastrar_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_excluir_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(txt_nome_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_duracao_minutos_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(txt_duracao_segundos_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_artista_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_genero_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bt_cadastrar_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_id_musica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bt_excluir_musica, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))))
         );
 
         jTabbedPane1.addTab("Músicas", jPanel2);
@@ -415,7 +466,7 @@ public class menuAdm extends javax.swing.JFrame {
                 .addComponent(bt_consultar_usuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Usuários", jPanel3);
@@ -440,6 +491,9 @@ public class menuAdm extends javax.swing.JFrame {
     
     private void bt_cadastrar_artistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cadastrar_artistaActionPerformed
         cArt.adicionarArtista();
+        cEstat.consultar();
+        cArt.consultar();
+        cEstat.mostrarTodasMusicas();
     }//GEN-LAST:event_bt_cadastrar_artistaActionPerformed
 
     private void txt_nome_artistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nome_artistaActionPerformed
@@ -448,14 +502,19 @@ public class menuAdm extends javax.swing.JFrame {
 
     private void bt_excluir_artistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_excluir_artistaActionPerformed
         cArt.excluirArtista();
+        cEstat.consultar();
+        cArt.consultar();
+        cEstat.mostrarTodasMusicas();
     }//GEN-LAST:event_bt_excluir_artistaActionPerformed
 
     private void bt_cadastrar_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cadastrar_musicaActionPerformed
-        // TODO add your handling code here:
+        cEstat.adicionarMusica();
+        cEstat.mostrarTodasMusicas();
     }//GEN-LAST:event_bt_cadastrar_musicaActionPerformed
 
     private void bt_excluir_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_excluir_musicaActionPerformed
-        // TODO add your handling code here:
+        cEstat.detetarMusica();
+        cEstat.mostrarTodasMusicas();
     }//GEN-LAST:event_bt_excluir_musicaActionPerformed
 
     private void txt_nome_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nome_usuarioActionPerformed
@@ -466,9 +525,9 @@ public class menuAdm extends javax.swing.JFrame {
         cUsr.consultar();
     }//GEN-LAST:event_bt_consultar_usuarioActionPerformed
 
-    private void txt_duracao_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_duracao_musicaActionPerformed
+    private void txt_duracao_minutos_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_duracao_minutos_musicaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_duracao_musicaActionPerformed
+    }//GEN-LAST:event_txt_duracao_minutos_musicaActionPerformed
 
     private void txt_artista_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_artista_musicaActionPerformed
         // TODO add your handling code here:
@@ -477,6 +536,14 @@ public class menuAdm extends javax.swing.JFrame {
     private void txt_genero_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_genero_musicaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_genero_musicaActionPerformed
+
+    private void txt_id_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_musicaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_musicaActionPerformed
+
+    private void txt_duracao_segundos_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_duracao_segundos_musicaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_duracao_segundos_musicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -522,7 +589,10 @@ public class menuAdm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -546,8 +616,10 @@ public class menuAdm extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_usuarios;
     private javax.swing.JTextField txt_artista_musica;
     private javax.swing.JTextArea txt_artistas;
-    private javax.swing.JTextField txt_duracao_musica;
+    private javax.swing.JTextField txt_duracao_minutos_musica;
+    private javax.swing.JTextField txt_duracao_segundos_musica;
     private javax.swing.JTextField txt_genero_musica;
+    private javax.swing.JTextField txt_id_musica;
     private javax.swing.JTextArea txt_info_usuario;
     private javax.swing.JTextArea txt_musicas;
     private javax.swing.JTextArea txt_musicas_curtidas;
@@ -617,17 +689,29 @@ public class menuAdm extends javax.swing.JFrame {
         return txt_artista_musica;
     }
 
-    public JTextField getTxt_duracao_musica() {
-        return txt_duracao_musica;
-    }
-
     public JTextField getTxt_genero_musica() {
         return txt_genero_musica;
     }
+
+    public JTextField getTxt_id_musica() {
+        return txt_id_musica;
+    }
+
+    public JTextField getTxt_duracao_minutos_musica() {
+        return txt_duracao_minutos_musica;
+    }
+
+    public JTextField getTxt_duracao_segundos_musica() {
+        return txt_duracao_segundos_musica;
+    }
+    
+    
+    
+    
     // Isso é onde as informações devem ser recolhidas /\/\
     
     // Botao Cadastrar: bt_cadastrar_musicaActionPerformed (só dar Ctrl + F)
-    // Botao Excluir: bt_excluir_artistaActionPerformed (só dar Ctrl + F)
+    // Botao Excluir: bt_excluir_musicaActionPerformed (só dar Ctrl + F)
 
     //-----------------------FIM-Músicas--------------------
     
@@ -649,17 +733,5 @@ public class menuAdm extends javax.swing.JFrame {
     // Botao Consultar: bt_consultar_usuarioActionPerformed (só dar Ctrl + F)
     
     //-----------------------FIM-Usuários--------------------
-
-    
-
-    
-
-    
-    
-  
-   
-    
-    
-
 
 }
