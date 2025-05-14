@@ -8,7 +8,7 @@ package model;
  *
  * @author unifflopes
  */
-public class Usuario extends Pessoa {
+public class Usuario extends Pessoa implements Autenticacao{
     private String email;
     private String senha;
 
@@ -37,6 +37,11 @@ public class Usuario extends Pessoa {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    
+    @Override
+    public boolean login(String senha) {
+        return this.senha.equals(senha);
     }
     
     public String info(){

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package spotifei;
-import view.*;
+
 /**
  *
  * @author unifflopes
@@ -14,8 +14,7 @@ public class Spotifei {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        LoginUsu lf = new LoginUsu();
-        lf.setVisible(true);
+        // TODO code application logic here
     }
     
 }

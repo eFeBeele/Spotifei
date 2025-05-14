@@ -8,6 +8,6 @@ package model;
  *
  * @author unifflopes
  */
-public class Autenticacao {
-    
+public interface Autenticacao {
+    boolean login(String senha);
 }

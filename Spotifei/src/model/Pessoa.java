@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author unifflopes
+ * @author ferna
  */
 public class Pessoa {
     private String nome;
