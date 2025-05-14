@@ -120,6 +120,11 @@ public class LoginUsu extends javax.swing.JFrame {
 
         CadastroUsu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         CadastroUsu.setText("CADASTRAR");
+        CadastroUsu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastroUsuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,6 +180,12 @@ public class LoginUsu extends javax.swing.JFrame {
         c.loginUsuario();
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_LogarUsuActionPerformed
+
+    private void CadastroUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroUsuActionPerformed
+        CadastroUsu cu = new CadastroUsu();
+        cu.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_CadastroUsuActionPerformed
 
     /**
      * @param args the command line arguments

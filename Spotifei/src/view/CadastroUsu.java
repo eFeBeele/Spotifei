@@ -209,7 +209,9 @@ public class CadastroUsu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LogarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogarUsuActionPerformed
-        // TODO add your handling code here:
+        LoginUsu lu = new LoginUsu();
+        lu.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_LogarUsuActionPerformed
 
     private void CadastroUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroUsuActionPerformed
