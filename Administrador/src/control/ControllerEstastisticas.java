@@ -125,43 +125,4 @@ public class ControllerEstastisticas {
                                               JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    
-    public void detetarMusica(){
-        Conexao conexao = new Conexao();
-        
-        try{
-            Connection conn = conexao.getConnection();
-            MusicaDAO muscDAO = new MusicaDAO(conn);
-            muscDAO.excluirMusica(Integer.parseInt(view.getTxt_id_musica().getText()));
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(view, 
-                                              e, 
-                                              "Aviso",
-                                              JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-    public void adicionarMusica(){
-        Conexao conexao = new Conexao();
-        
-        try{
-            Connection conn = conexao.getConnection();
-            MusicaDAO muscDAO = new MusicaDAO(conn);
-            String nomeMusica = view.getTxt_nome_musica().getText();
-            int curtidas = 0;
-            int descurtidas = 0;
-            String duracao = view.getTxt_duracao_minutos_musica().getText() + " minutes " + view.getTxt_duracao_segundos_musica().getText() + " seconds";
-            Artista artista = new Artista(view.getTxt_artista_musica().getText());
-            String genero = view.getTxt_genero_musica().getText();
-            
-            Musica musc = new Musica(nomeMusica, curtidas, descurtidas, duracao, artista, genero);
-            muscDAO.adicionarMusica(musc);
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(view, 
-                                              e, 
-                                              "Aviso",
-                                              JOptionPane.ERROR_MESSAGE);
-        }
-    }
 }

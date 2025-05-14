@@ -19,6 +19,7 @@ public class menuAdm extends javax.swing.JFrame {
     private ControllerUsuario cUsr;
     private ControllerEstastisticas cEstat;
     private ControllerArtista cArt;
+    private ControllerMusica cMusc;
     /**
      * Creates new form menuAdm
      */
@@ -27,6 +28,7 @@ public class menuAdm extends javax.swing.JFrame {
         cUsr = new ControllerUsuario(this);
         cEstat = new ControllerEstastisticas(this);
         cArt = new ControllerArtista(this);
+        cMusc = new ControllerMusica(this);
         cEstat.consultar();
         cEstat.mostrarTodasMusicas();
         cArt.consultar();
@@ -492,8 +494,8 @@ public class menuAdm extends javax.swing.JFrame {
     private void bt_cadastrar_artistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cadastrar_artistaActionPerformed
         cArt.adicionarArtista();
         cEstat.consultar();
-        cArt.consultar();
         cEstat.mostrarTodasMusicas();
+        cArt.consultar();
     }//GEN-LAST:event_bt_cadastrar_artistaActionPerformed
 
     private void txt_nome_artistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nome_artistaActionPerformed
@@ -503,18 +505,22 @@ public class menuAdm extends javax.swing.JFrame {
     private void bt_excluir_artistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_excluir_artistaActionPerformed
         cArt.excluirArtista();
         cEstat.consultar();
-        cArt.consultar();
         cEstat.mostrarTodasMusicas();
+        cArt.consultar();
     }//GEN-LAST:event_bt_excluir_artistaActionPerformed
 
     private void bt_cadastrar_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cadastrar_musicaActionPerformed
-        cEstat.adicionarMusica();
+        cMusc.adicionarMusica();
+        cEstat.consultar();
         cEstat.mostrarTodasMusicas();
+        cArt.consultar();
     }//GEN-LAST:event_bt_cadastrar_musicaActionPerformed
 
     private void bt_excluir_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_excluir_musicaActionPerformed
-        cEstat.detetarMusica();
+        cMusc.detetarMusica();
+        cEstat.consultar();
         cEstat.mostrarTodasMusicas();
+        cArt.consultar();
     }//GEN-LAST:event_bt_excluir_musicaActionPerformed
 
     private void txt_nome_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nome_usuarioActionPerformed
