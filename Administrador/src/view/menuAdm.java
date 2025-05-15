@@ -4,10 +4,12 @@
  */
 package view;
 
+import Exception.InfoNula;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import control.*;
+import javax.swing.JOptionPane;
 
 
 /**

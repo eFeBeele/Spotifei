@@ -17,7 +17,7 @@ public class ArtistaDAO {
     }
     
     public void inserir(String nome_digitado) throws SQLException{
-        String sql = "INSERT into prod.artista (nome_artista) VALUES ('"
+        String sql = "INSERT into artista (nome_artista) VALUES ('"
                       + nome_digitado + "')";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.execute();
@@ -25,7 +25,7 @@ public class ArtistaDAO {
     }
     
     public void excluir(String nome_digitado) throws SQLException{
-        String sql = "Delete from prod.artista where nome_artista = ?";      
+        String sql = "Delete from artista where nome_artista = ?";      
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, nome_digitado);        
         statement.execute();
@@ -33,7 +33,7 @@ public class ArtistaDAO {
     }
     
     public ResultSet consultar() throws SQLException{
-        String sql = "SELECT * FROM prod.artista";
+        String sql = "SELECT * FROM artista";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.execute();
         ResultSet resultado = statement.getResultSet();

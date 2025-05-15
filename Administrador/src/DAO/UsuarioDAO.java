@@ -19,7 +19,7 @@ public class UsuarioDAO {
     }
     
     public ResultSet consultar(Usuario usr) throws SQLException{
-        String sql = "select * from prod.usuario where nome_usuario = ?";
+        String sql = "select * from usuario where nome_usuario = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, usr.getNome());
         
@@ -30,7 +30,7 @@ public class UsuarioDAO {
     }
     
     public ResultSet loginADM(Admin adm) throws SQLException{
-        String sql = "select * from prod.usuario where email = ? AND adm = true";
+        String sql = "select * from usuario where email = ? AND adm = true";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, adm.getEmail());
         
@@ -41,7 +41,7 @@ public class UsuarioDAO {
     }
     
     public ResultSet totalUsuarios() throws SQLException{
-        String sql = "SELECT COUNT(*) AS total_usuarios FROM prod.usuario";
+        String sql = "SELECT COUNT(*) AS total_usuarios FROM usuario";
         
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.execute();

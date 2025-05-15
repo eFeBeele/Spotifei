@@ -45,7 +45,7 @@ public class ControllerLoginADM {
                     JOptionPane.showMessageDialog(view, 
                                                   "Login efetuado com sucesso", 
                                                   "Aviso",
-                                                  JOptionPane.OK_OPTION);
+                                                  JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(view, 
                                                   "Senha incorreta", 
