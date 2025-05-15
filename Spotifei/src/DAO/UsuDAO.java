@@ -31,7 +31,7 @@ public class UsuDAO {
         return resultado;
     }
     public void inserir(Usuario usuario) throws SQLException{
-        String sql = "insert into usuario (id_usuario,nome_usuario,senha,email,adm) values (2,'"+ usuario.getNome()    + "', '"+ usuario.getSenha() + "', '"+ usuario.getEmail()   + "',false)";
+        String sql = "insert into usuario (nome_usuario,senha,email,adm) values ('"+ usuario.getNome()    + "', '"+ usuario.getSenha() + "', '"+ usuario.getEmail()   + "',false)";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.execute();
         conn.close();

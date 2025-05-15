@@ -8,6 +8,13 @@ package model;
  *
  * @author ferna
  */
-public class Artista {
+public class Artista extends Pessoa{
+    public Artista(String nome){
+        super(nome);
+    }
     
+    public String infoArtista(){
+        return "\nNome: " + super.getNome() + 
+                "\n---------------------";
+    }
 }

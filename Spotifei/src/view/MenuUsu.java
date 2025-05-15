@@ -4,6 +4,14 @@
  */
 package view;
 
+import controller.*;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author ferna
@@ -15,7 +23,57 @@ public class MenuUsu extends javax.swing.JFrame {
      */
     public MenuUsu() {
         initComponents();
+        c = new ControllerPesquisa(this);
     }
+
+    public JTextField getBuscaMus() {
+        return BuscaMus;
+    }
+
+    public void setBuscaMus(JTextField BuscaMus) {
+        this.BuscaMus = BuscaMus;
+    }
+
+    public JButton getBuscarMusica() {
+        return BuscarMusica;
+    }
+
+    public void setBuscarMusica(JButton BuscarMusica) {
+        this.BuscarMusica = BuscarMusica;
+    }
+
+    public JTextArea getResultadoMusica() {
+        return ResultadoMusica;
+    }
+
+    public void setResultadoMusica(JTextArea ResultadoMusica) {
+        this.ResultadoMusica = ResultadoMusica;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTabbedPane getjTabbedPane1() {
+        return jTabbedPane1;
+    }
+
+    public void setjTabbedPane1(JTabbedPane jTabbedPane1) {
+        this.jTabbedPane1 = jTabbedPane1;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,18 +87,43 @@ public class MenuUsu extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         BuscaMus = new javax.swing.JTextField();
+        BuscarMusica = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ResultadoMusica = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BuscaMus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        BuscaMus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscaMusActionPerformed(evt);
+            }
+        });
+
+        BuscarMusica.setText("BUSCAR");
+        BuscarMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarMusicaActionPerformed(evt);
+            }
+        });
+
+        ResultadoMusica.setColumns(20);
+        ResultadoMusica.setRows(5);
+        jScrollPane1.setViewportView(ResultadoMusica);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(BuscarMusica)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(BuscaMus, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(BuscaMus, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
         );
         jPanel1Layout.setVerticalGroup(
@@ -48,7 +131,11 @@ public class MenuUsu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(BuscaMus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BuscarMusica)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Pesquisa", jPanel1);
@@ -57,15 +144,24 @@ public class MenuUsu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BuscaMusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaMusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscaMusActionPerformed
+
+    private void BuscarMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarMusicaActionPerformed
+    String x = getBuscaMus().getText();
+    c.mostrarTodasMusicas(x);        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarMusicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,10 +197,13 @@ public class MenuUsu extends javax.swing.JFrame {
             }
         });
     }
-
+private ControllerPesquisa c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField BuscaMus;
+    private javax.swing.JButton BuscarMusica;
+    private javax.swing.JTextArea ResultadoMusica;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
