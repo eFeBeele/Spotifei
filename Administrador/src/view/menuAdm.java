@@ -9,6 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import control.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -512,7 +515,11 @@ public class menuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_excluir_artistaActionPerformed
 
     private void bt_cadastrar_musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cadastrar_musicaActionPerformed
-        cMusc.adicionarMusica();
+        try {
+            cMusc.adicionarMusica();
+        } catch (SQLException ex) {
+            Logger.getLogger(menuAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
         cEstat.consultar();
         cEstat.mostrarTodasMusicas();
         cArt.consultar();
