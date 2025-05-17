@@ -6,23 +6,22 @@ package model;
 
 /**
  *
- * @author unifflopes
+ * @author Arthur
  */
-public class Admin extends Pessoa implements Autenticacao{
+public class Usuario extends Pessoa implements Autenticacao{
     private String email;
     private String senha;
-    
-    public Admin(String nome, String email, String senha){
-        super(nome);
+
+    public Usuario(String nome_usuario, String email, String senha) {
+        super(nome_usuario);
         this.email = email;
         this.senha = senha;
     }
     
-    public Admin(String email){
-        super("nulo");
-        this.email = email;
-        this.senha = "nulo";
+    public Usuario(String nome_usuario) {
+        super(nome_usuario);
     }
+
 
     public String getEmail() {
         return email;
@@ -43,5 +42,9 @@ public class Admin extends Pessoa implements Autenticacao{
     @Override
     public boolean login(String senha) {
         return this.senha.equals(senha);
+    }
+    
+    public String info(){
+        return "Usuário: \nNome do usuario: " + super.getNome() + "\nSenha: " + senha + "\nE-Mail: " + email;
     }
 }
