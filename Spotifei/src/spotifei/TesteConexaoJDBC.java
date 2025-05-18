@@ -15,13 +15,13 @@ import DAO.*;
  */
 public class TesteConexaoJDBC {
         public static void main(String[] args) {
-        Conexao conexao = new Conexao(); // Cria uma instância da classe Conexao
+        Conexao conexao = new Conexao(); 
         try {
-            Connection conn = conexao.getConnection(); // Obtém a conexão
+            Connection conn = conexao.getConnection(); 
 
             if (conn != null) {
                 System.out.println("Conexão com o banco de dados estabelecida com sucesso!");
-                conn.close(); // Fecha a conexão após o teste
+                conn.close();
                 System.out.println("Conexão encerrada.");
             } else {
                 System.out.println("Falha ao conectar ao banco de dados.");

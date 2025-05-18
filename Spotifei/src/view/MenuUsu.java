@@ -73,6 +73,63 @@ public class MenuUsu extends javax.swing.JFrame {
     public void setjTabbedPane1(JTabbedPane jTabbedPane1) {
         this.jTabbedPane1 = jTabbedPane1;
     }
+
+    public ControllerPesquisa getC() {
+        return c;
+    }
+
+    public void setC(ControllerPesquisa c) {
+        this.c = c;
+    }
+
+    public JButton getAntMu() {
+        return AntMu;
+    }
+
+    public void setAntMu(JButton AntMu) {
+        this.AntMu = AntMu;
+    }
+
+    public JButton getCurMu() {
+        return CurMu;
+    }
+
+    public void setCurMu(JButton CurMu) {
+        this.CurMu = CurMu;
+    }
+
+    public JButton getDescuMu() {
+        return DescuMu;
+    }
+
+    public void setDescuMu(JButton DescuMu) {
+        this.DescuMu = DescuMu;
+    }
+
+    public JTextArea getMusicaAtu() {
+        return MusicaAtu;
+    }
+
+    public void setMusicaAtu(JTextArea MusicaAtu) {
+        this.MusicaAtu = MusicaAtu;
+    }
+
+    public JButton getProxMu() {
+        return ProxMu;
+    }
+
+    public void setProxMu(JButton ProxMu) {
+        this.ProxMu = ProxMu;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+    
     
 
     /**
@@ -90,6 +147,12 @@ public class MenuUsu extends javax.swing.JFrame {
         BuscarMusica = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ResultadoMusica = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        MusicaAtu = new javax.swing.JTextArea();
+        AntMu = new javax.swing.JButton();
+        ProxMu = new javax.swing.JButton();
+        CurMu = new javax.swing.JButton();
+        DescuMu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,20 +174,65 @@ public class MenuUsu extends javax.swing.JFrame {
         ResultadoMusica.setRows(5);
         jScrollPane1.setViewportView(ResultadoMusica);
 
+        MusicaAtu.setColumns(20);
+        MusicaAtu.setRows(5);
+        jScrollPane2.setViewportView(MusicaAtu);
+
+        AntMu.setText("Anterior");
+        AntMu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AntMuActionPerformed(evt);
+            }
+        });
+
+        ProxMu.setText("Próxima");
+        ProxMu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProxMuActionPerformed(evt);
+            }
+        });
+
+        CurMu.setText("Curtir");
+        CurMu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CurMuActionPerformed(evt);
+            }
+        });
+
+        DescuMu.setText("Descurtir");
+        DescuMu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DescuMuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(BuscarMusica)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CurMu)
+                    .addComponent(DescuMu))
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AntMu)
+                    .addComponent(ProxMu))
+                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(BuscaMus, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE))
-                .addGap(17, 17, 17))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BuscaMus)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(BuscarMusica)
+                        .addGap(177, 177, 177))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,8 +242,25 @@ public class MenuUsu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(BuscarMusica)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ProxMu)
+                        .addGap(18, 18, 18)
+                        .addComponent(AntMu)
+                        .addGap(46, 46, 46))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(CurMu)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(DescuMu))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(26, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("Pesquisa", jPanel1);
@@ -160,8 +285,25 @@ public class MenuUsu extends javax.swing.JFrame {
 
     private void BuscarMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarMusicaActionPerformed
     String x = getBuscaMus().getText();
-    c.mostrarTodasMusicas(x);        // TODO add your handling code here:
+    c.mostrarTodasMusicas(x);
+    c.exibirMusicaAtual();
     }//GEN-LAST:event_BuscarMusicaActionPerformed
+
+    private void ProxMuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProxMuActionPerformed
+    c.proximaMusica();
+    }//GEN-LAST:event_ProxMuActionPerformed
+
+    private void AntMuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AntMuActionPerformed
+    c.musicaAnterior();
+    }//GEN-LAST:event_AntMuActionPerformed
+
+    private void CurMuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CurMuActionPerformed
+    c.curtirMusica();
+    }//GEN-LAST:event_CurMuActionPerformed
+
+    private void DescuMuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescuMuActionPerformed
+    c.descurtirMusica();
+    }//GEN-LAST:event_DescuMuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,11 +341,17 @@ public class MenuUsu extends javax.swing.JFrame {
     }
 private ControllerPesquisa c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AntMu;
     private javax.swing.JTextField BuscaMus;
     private javax.swing.JButton BuscarMusica;
+    private javax.swing.JButton CurMu;
+    private javax.swing.JButton DescuMu;
+    private javax.swing.JTextArea MusicaAtu;
+    private javax.swing.JButton ProxMu;
     private javax.swing.JTextArea ResultadoMusica;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

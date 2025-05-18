@@ -43,4 +43,13 @@ public ResultSet exibirTodasMusicas(String termoPesquisa) throws SQLException {
     statement.execute();
     return statement.getResultSet();
 }
+    public void atualizarCurtidaDescurtida(int idMusica, int novasCurtidas, int novasDescurtidas) throws SQLException {
+        String sql = "UPDATE musica SET curtidas = ?, descurtidas = ? WHERE id_musica = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, novasCurtidas);
+            pstmt.setInt(2, novasDescurtidas);
+            pstmt.setInt(3, idMusica);
+            pstmt.executeUpdate();
+        }
+    }
 }
