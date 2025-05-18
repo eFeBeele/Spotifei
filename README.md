@@ -1,78 +1,85 @@
-# Spotifei
+# 🎧 Spotifei - Plataforma de Informações de Áudios Digitais
 
----
+Bem-vindo ao **Spotifei**, seu catálogo digital de músicas e podcasts! Inspirado no Spotify, este projeto em Java permite que usuários e administradores naveguem e gerenciem informações detalhadas sobre seus áudios favoritos.
 
-Bem-vindo ao **Spotifei**, uma plataforma de informações de áudios digitais inspirada no Spotify! Este projeto Java permite que usuários e administradores gerenciem e interajam com um catálogo de músicas e podcasts.
+## 🎯 Nosso Objetivo
 
-## 🎯 Objetivo
+O principal objetivo do Spotifei é oferecer uma plataforma eficiente para gerenciar e consultar metadados de áudios digitais, como músicas e podcasts. Focamos na organização e apresentação de informações relevantes, proporcionando uma experiência informativa similar à de um serviço de streaming.
 
-O objetivo principal do Spotifei é criar uma plataforma robusta para o compartilhamento de informações sobre áudios digitais, como músicas e podcasts. Embora não haja reprodução de áudio, o sistema foca na gestão e consulta de metadados, oferecendo uma experiência similar à de um serviço de streaming de áudio.
+## 🛠️ Tecnologias Empregadas
 
-## 🚀 Tecnologias Utilizadas
+* **Interface Gráfica**: Java Swing
+* **Banco de Dados**: JDBC (Java Database Connectivity)
+* **SGBD**: PostgreSQL
+* **Arquitetura**: MVC (Model-View-Controller)
 
-* **Java Swing**: Para a construção da interface gráfica do usuário (GUI).
-* **JDBC (Java Database Connectivity)**: Para a conexão e manipulação do banco de dados.
-* **PostgreSQL**: Sistema de gerenciamento de banco de dados relacional.
-* **MVC (Model-View-Controller)**: Arquitetura de software para separar a lógica de negócios da interface do usuário.
-
-## ✨ Funcionalidades
+## ✨ Funcionalidades Detalhadas
 
 ### 👤 Usuário
 
-* **Cadastro e Login**:
-    * Cadastrar novo usuário.
-    * Realizar login na plataforma.
-* **Busca e Visualização de Músicas**:
-    * Buscar músicas por nome, artista ou gênero.
-    * Listar informações detalhadas das músicas buscadas.
-* **Interação com Músicas**:
-    * Curtir e descurtir músicas.
-* **Gerenciamento de Playlists**:
-    * Criar, editar e excluir playlists.
-    * Adicionar e remover músicas de playlists existentes.
-* **Visualização de Histórico**:
-    * Visualizar as últimas 10 músicas buscadas.
-    * Visualizar a lista de músicas curtidas.
-    * Visualizar a lista de músicas descurtidas.
+#### 1. Cadastro e Login
+* Crie sua conta no Spotifei.
+* Acesse a plataforma com suas credenciais.
+
+#### 2. Exploração de Conteúdo Musical
+* Busque músicas por título, artista ou gênero.
+* Visualize os detalhes de cada música encontrada.
+
+#### 3. Interação Musical
+* Marque suas músicas favoritas com um "curtir".
+* Remova músicas da sua lista de favoritos com "descurtir".
+
+#### 4. Gerenciamento de Playlists
+* Crie, edite e exclua suas playlists personalizadas.
+* Adicione e remova músicas de suas playlists.
+
+#### 5. Histórico e Preferências
+* Veja as últimas 10 músicas que você buscou.
+* Consulte sua lista de músicas curtidas.
+* Acesse sua lista de músicas descurtidas.
 
 ### 👑 Administrador
 
-* **Login**:
-    * Realizar login como administrador.
-* **Gerenciamento de Conteúdo**:
-    * Cadastrar e excluir músicas do sistema.
-    * Cadastrar novos artistas.
-* **Consulta de Usuários**:
-    * Consultar informações sobre usuários cadastrados.
-* **Estatísticas do Sistema**:
-    * Visualizar as Top 5 músicas mais curtidas pelos usuários.
-    * Visualizar as Top 5 músicas mais descurtidas pelos usuários.
-    * Visualizar o total de usuários cadastrados.
-    * Visualizar o total de músicas disponíveis no sistema.
+#### 1. Acesso Administrativo
+* Faça login com suas credenciais de administrador.
+
+#### 2. Gestão de Conteúdo
+* Adicione novas músicas ao sistema.
+* Remova músicas existentes do catálogo.
+* Registre novos artistas na plataforma.
+
+#### 3. Consulta de Usuários
+* Visualize informações sobre os usuários cadastrados.
+
+#### 4. Estatísticas do Sistema
+* Descubra as 5 músicas mais curtidas pelos usuários.
+* Identifique as 5 músicas mais descurtidas.
+* Acompanhe o número total de usuários registrados.
+* Verifique o número total de músicas disponíveis.
 
 ---
 
-## 👨‍💻 Alunos
+## ⚙️ Primeiros Passos - Como Executar
+
+1.  **Banco de Dados**:
+    * Certifique-se de que o PostgreSQL esteja instalado e configurado em sua máquina.
+    * Crie um banco de dados chamado `spotifei` (ou outro nome, ajustando a configuração no projeto).
+    * Execute os scripts SQL fornecidos para criar as tabelas necessárias (usuários, músicas, artistas, playlists, etc.).
+2.  **Projeto Java**:
+    * Clone este repositório para o seu computador.
+    * Abra o projeto em sua IDE Java preferida (IntelliJ IDEA, Eclipse, NetBeans).
+    * Adicione a dependência JDBC do PostgreSQL ao seu projeto (via Maven, Gradle ou adicionando o JAR).
+    * Modifique as configurações de conexão com o banco de dados no código-fonte (URL, usuário, senha).
+3.  **Execução**:
+    * Compile e execute a classe principal da aplicação através da sua IDE.
+
+---
+
+## 👨‍💻 Desenvolvedores
 
 * **Fernando Bordin Lopes** - RA: 24.124.003-5
 * **Arthur Barbosa Zanvetor** - RA: 24.124.063-9
 
 ---
 
-## 🛠️ Como Executar o Projeto
-
-1.  **Configuração do Banco de Dados**:
-    * Certifique-se de ter o PostgreSQL instalado e configurado.
-    * Crie um banco de dados com o nome `spotifei` (ou o nome que preferir, ajustando nas configurações do projeto).
-    * Execute os scripts SQL para criar as tabelas necessárias (usuários, músicas, artistas, playlists, etc.).
-2.  **Configuração do Projeto Java**:
-    * Clone este repositório para o seu ambiente local.
-    * Importe o projeto em sua IDE Java (IntelliJ IDEA, Eclipse, NetBeans, etc.).
-    * Adicione as dependências JDBC para PostgreSQL ao seu projeto (geralmente via Maven ou Gradle, ou adicionando o JAR manualmente).
-    * Atualize as configurações de conexão com o banco de dados no código (usuário, senha, URL do banco de dados).
-3.  **Execução**:
-    * Compile e execute a aplicação principal a partir da sua IDE.
-
----
-
-Sinta-se à vontade para explorar e contribuir com o projeto Spotifei! Se tiver alguma dúvida ou sugestão, entre em contato.
+Esperamos que você aproveite o Spotifei! Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
