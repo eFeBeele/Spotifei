@@ -1,7 +1,7 @@
 # 🎧 Spotifei - Plataforma de Informações de Áudios Digitais
 
 Bem-vindo ao **Spotifei**, seu catálogo digital de músicas e podcasts! Inspirado no Spotify, este projeto em Java permite que usuários e administradores naveguem e gerenciem informações detalhadas sobre seus áudios favoritos.
-
+![feium título](https://github.com/user-attachments/assets/f7d54106-2e6b-459e-a448-873c2f821e6d)
 ## 🎯 Nosso Objetivo
 
 O principal objetivo do Spotifei é oferecer uma plataforma eficiente para gerenciar e consultar metadados de áudios digitais, como músicas e podcasts. Focamos na organização e apresentação de informações relevantes, proporcionando uma experiência informativa similar à de um serviço de streaming.
@@ -61,17 +61,18 @@ O principal objetivo do Spotifei é oferecer uma plataforma eficiente para geren
 
 ## ⚙️ Primeiros Passos - Como Executar
 
-1.  **Banco de Dados**:
-    * Certifique-se de que o PostgreSQL esteja instalado e configurado em sua máquina.
-    * Crie um banco de dados chamado `spotifei` (ou outro nome, ajustando a configuração no projeto).
-    * Execute os scripts SQL fornecidos para criar as tabelas necessárias (usuários, músicas, artistas, playlists, etc.).
-2.  **Projeto Java**:
+1.  **Banco de Dados (Configuração Existente)**:
+    * Certifique-se de que você tenha acesso ao servidor PostgreSQL com as credenciais fornecidas para o projeto.
+    * O banco de dados necessário já deve estar configurado e populado com as tabelas.
+2.  **Projeto Java (NetBeans)**:
     * Clone este repositório para o seu computador.
-    * Abra o projeto em sua IDE Java preferida (IntelliJ IDEA, Eclipse, NetBeans).
-    * Adicione a dependência JDBC do PostgreSQL ao seu projeto (via Maven, Gradle ou adicionando o JAR).
-    * Modifique as configurações de conexão com o banco de dados no código-fonte (URL, usuário, senha).
-3.  **Execução**:
-    * Compile e execute a classe principal da aplicação através da sua IDE.
+    * Abra o projeto no NetBeans IDE.
+    * Verifique se a biblioteca JDBC do PostgreSQL está adicionada ao projeto. Caso contrário, adicione o JAR correspondente nas configurações de bibliotecas do projeto.
+    * **Importante:** As configurações de conexão com o banco de dados (URL, usuário, senha) estão definidas diretamente no código-fonte Java. Certifique-se de que essas informações estejam corretas para o seu ambiente de acesso ao banco de dados.
+3.  **Execução (NetBeans)**:
+    * No NetBeans, localize a classe principal da aplicação (Spotifei, ou Administrador).
+    * Clique com o botão direito sobre essa classe e selecione "Executar Arquivo" para iniciar a aplicação.
+
 
 ---
 
