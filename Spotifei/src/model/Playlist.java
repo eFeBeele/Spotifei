@@ -8,6 +8,6 @@ package model;
  *
  * @author unifflopes
  */
-public class Musica {
+public class Playlist {
     
 }

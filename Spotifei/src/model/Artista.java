@@ -6,15 +6,8 @@ package model;
 
 /**
  *
- * @author ferna
+ * @author unifflopes
  */
-public class Artista extends Pessoa{
-    public Artista(String nome){
-        super(nome);
-    }
+public class Artista {
     
-    public String infoArtista(){
-        return "\nNome: " + super.getNome() + 
-                "\n---------------------";
-    }
 }
