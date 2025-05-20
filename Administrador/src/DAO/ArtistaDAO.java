@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DAO;
+import Exception.ErroInesperado;
+import Exception.InfoNula;
 import java.sql.*;
 
 /**
@@ -16,7 +18,20 @@ public class ArtistaDAO {
         this.conn = conn;
     }
     
-    public void inserir(String nome_digitado) throws SQLException{
+    public void inserir(String nome_digitado) throws SQLException, ErroInesperado, InfoNula{
+        String consulta = "SELECT nome_artista FROM artista WHERE nome_artista = ?";
+        PreparedStatement busca = conn.prepareStatement(consulta);
+        busca.setString(1, nome_digitado);
+        busca.execute();
+        
+        ResultSet consultaNome = busca.getResultSet();
+        
+        if(consultaNome.next()){
+            throw new ErroInesperado("ERRO! Não é possível adicionar o mesmo Artista");
+        }else if(nome_digitado.trim().equals("")){
+            throw new InfoNula("ERRO! Não é possível adicionar Artista nulo");
+        }
+        
         String sql = "INSERT into artista (nome_artista) VALUES ('"
                       + nome_digitado + "')";
         PreparedStatement statement = conn.prepareStatement(sql);

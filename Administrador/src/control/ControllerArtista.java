@@ -5,10 +5,14 @@
 package control;
 
 import DAO.*;
+import Exception.ErroInesperado;
+import Exception.InfoNula;
 import view.menuAdm;
 import model.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,6 +36,16 @@ public class ControllerArtista {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(view, 
                                           e.getMessage(), 
+                                          "Erro",
+                                          JOptionPane.ERROR_MESSAGE);
+        } catch (ErroInesperado ex) {
+            JOptionPane.showMessageDialog(view, 
+                                          ex.getMessage(), 
+                                          "Erro",
+                                          JOptionPane.ERROR_MESSAGE);
+        } catch (InfoNula ex) {
+            JOptionPane.showMessageDialog(view, 
+                                          ex.getMessage(), 
                                           "Erro",
                                           JOptionPane.ERROR_MESSAGE);
         }
