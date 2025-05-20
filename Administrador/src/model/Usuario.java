@@ -45,6 +45,6 @@ public class Usuario extends Pessoa implements Autenticacao{
     }
     
     public String info(){
-        return "Usuário: \nNome do usuario: " + super.getNome() + "\nSenha: " + senha + "\nE-Mail: " + email;
+        return " Usuário: \n Nome do usuario: " + super.getNome() + "\n Senha: " + senha + "\n E-Mail: " + email;
     }
 }

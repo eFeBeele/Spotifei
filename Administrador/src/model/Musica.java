@@ -87,21 +87,21 @@ public class Musica {
     }
 
     public String infoMusicasCompleta() {
-        return  "Id: " + idMusica +
-                "\nNome: " + nomeMusica +
-                "\nArtista: " + artista.getNome() +
-                "\nGênero: " + genero +
-                "\nCurtidas: " + curtidas +
-                "\nDescurtidas: " + descurtidas +
-                "\nDuração: " + duracao +
+        return  " Id: " + idMusica +
+                "\n Nome: " + nomeMusica +
+                "\n Artista: " + artista.getNome() +
+                "\n Gênero: " + genero +
+                "\n Curtidas: " + curtidas +
+                "\n Descurtidas: " + descurtidas +
+                "\n Duração: " + duracao +
                 "\n------------------------\n";
     }
     
     public String infoMusicas() {
-        return  "Nome: " + nomeMusica +
-                "\nCurtidas: " + curtidas +
-                "\nDescurtidas: " + descurtidas +
-                "\nDuração: " + duracao +
+        return  " Nome: " + nomeMusica +
+                "\n Curtidas: " + curtidas +
+                "\n Descurtidas: " + descurtidas +
+                "\n Duração: " + duracao +
                 "\n------------------------\n";
     }
 
