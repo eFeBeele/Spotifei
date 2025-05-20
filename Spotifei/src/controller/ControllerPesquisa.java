@@ -41,7 +41,8 @@ public class ControllerPesquisa {
         try {
             Connection conn = conexao.getConnection();
             MusicaDAO muscDAO = new MusicaDAO(conn);
-
+            
+            muscDAO.registrarHistoricoPesquisa(view.getIdUsu(),  x);
             ResultSet resInfoMusicas = muscDAO.exibirTodasMusicas(x);
             musicasEncontradas = criarListaDeMusicas(resInfoMusicas); 
             indiceAtual = 0; 
@@ -140,4 +141,43 @@ public class ControllerPesquisa {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    public void mostraHistorico(){
+        Conexao conexao = new Conexao();
+        try {
+            Connection conn = conexao.getConnection();
+            MusicaDAO muscDAO = new MusicaDAO(conn);
+            ResultSet histPesq = muscDAO.exibirHistoricoPesq(view.getIdUsu());
+            ResultSet histCurt = muscDAO.exibirHistoricoCurt(view.getIdUsu());
+            
+            // Historico Pesq
+            String mostraPesq = "";
+            
+            while(histPesq.next()){
+                mostraPesq += histPesq.getString("pesquisa");
+                mostraPesq += "\n--------------------\n";
+            }
+            view.getTxt_mostra_historico_pesq().setText(mostraPesq);
+            
+            // Historico Curti
+            String mostraCurt = "";
+
+            while (histCurt.next()) {
+                String nome = histCurt.getString("nome_musica");
+                boolean curtiu = histCurt.getBoolean("curtida");
+
+                mostraCurt += nome + " ";
+                mostraCurt += (curtiu ? " CURTIU" : " DESCURTIU");
+                mostraCurt += "\n--------------------\n";
+            }
+            view.getTxt_mostra_historico_curt().setText(mostraCurt);
+            conn.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(view,
+                    "Erro ao curtir/descurtir a música: " + e.getMessage(),
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
 }

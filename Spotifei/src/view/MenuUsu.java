@@ -22,11 +22,13 @@ public class MenuUsu extends javax.swing.JFrame {
     public MenuUsu() {
         initComponents();
         c = new ControllerPesquisa(this);
+        c.mostraHistorico();
     }
     public MenuUsu(int IdUsu) {
         this.IdUsu = IdUsu;
         initComponents();
         c = new ControllerPesquisa(this);
+        c.mostraHistorico();
     }
 
     public JTextField getTestId() {
@@ -190,6 +192,23 @@ public class MenuUsu extends javax.swing.JFrame {
     public void setjScrollPane2(JScrollPane jScrollPane2) {
         this.jScrollPane2 = jScrollPane2;
     }
+
+    public JTextArea getTxt_mostra_historico_curt() {
+        return txt_mostra_historico_curt;
+    }
+
+    public void setTxt_mostra_historico_curt(JTextArea txt_mostra_historico_curt) {
+        this.txt_mostra_historico_curt = txt_mostra_historico_curt;
+    }
+
+    public JTextArea getTxt_mostra_historico_pesq() {
+        return txt_mostra_historico_pesq;
+    }
+
+    public void setTxt_mostra_historico_pesq(JTextArea txt_mostra_historico_pesq) {
+        this.txt_mostra_historico_pesq = txt_mostra_historico_pesq;
+    }
+    
     
     
 
@@ -220,6 +239,13 @@ public class MenuUsu extends javax.swing.JFrame {
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         jTabbedPane6 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txt_mostra_historico_pesq = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txt_mostra_historico_curt = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -343,6 +369,49 @@ public class MenuUsu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Playlists", jTabbedPane2);
 
+        txt_mostra_historico_pesq.setColumns(20);
+        txt_mostra_historico_pesq.setRows(5);
+        jScrollPane3.setViewportView(txt_mostra_historico_pesq);
+
+        jLabel1.setText("Ultimas Pesquisas:");
+
+        txt_mostra_historico_curt.setColumns(20);
+        txt_mostra_historico_curt.setRows(5);
+        jScrollPane4.setViewportView(txt_mostra_historico_curt);
+
+        jLabel2.setText("Ultimas Intereações:");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Histórico", jPanel2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -368,6 +437,7 @@ public class MenuUsu extends javax.swing.JFrame {
     String x = getBuscaMus().getText();
     getTestId().setText(String.valueOf(IdUsu));
     c.mostrarTodasMusicas(x);
+    c.mostraHistorico();
     c.exibirMusicaAtual();
     }//GEN-LAST:event_BuscarMusicaActionPerformed
 
@@ -380,17 +450,20 @@ public class MenuUsu extends javax.swing.JFrame {
     }//GEN-LAST:event_AntMuActionPerformed
 
     private void CurMuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CurMuActionPerformed
-
+    c.mostraHistorico();
     try{
     c.curtirMusica();
+    c.mostraHistorico();
     }catch(SQLException e){
      System.err.println(e);
     }
     }//GEN-LAST:event_CurMuActionPerformed
 
     private void DescuMuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescuMuActionPerformed
+    c.mostraHistorico();
     try{
     c.descurtirMusica();
+    c.mostraHistorico();
     }catch(SQLException e){
      System.err.println(e);
     }
@@ -441,14 +514,21 @@ private ControllerPesquisa c;
     private javax.swing.JButton ProxMu;
     private javax.swing.JTextArea ResultadoMusica;
     private javax.swing.JTextField TestId;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
+    private javax.swing.JTextArea txt_mostra_historico_curt;
+    private javax.swing.JTextArea txt_mostra_historico_pesq;
     // End of variables declaration//GEN-END:variables
 }
