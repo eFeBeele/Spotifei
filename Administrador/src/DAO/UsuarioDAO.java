@@ -29,6 +29,16 @@ public class UsuarioDAO {
         return resultado;
     }
     
+    public ResultSet consultarTodos() throws SQLException{
+        String sql = "select nome_usuario from usuario";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        
+        return resultado;
+    }
+    
     public ResultSet loginADM(Admin adm) throws SQLException{
         String sql = "select * from usuario where email = ? AND adm = true";
         PreparedStatement statement = conn.prepareStatement(sql);

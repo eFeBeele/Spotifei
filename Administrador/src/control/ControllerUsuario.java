@@ -49,4 +49,30 @@ public class ControllerUsuario {
                                               JOptionPane.ERROR_MESSAGE);
         }          
     }
+    
+    public void consultarTodos(){
+        Conexao conexao = new Conexao();
+        
+        try{
+            Connection conn = conexao.getConnection();
+            UsuarioDAO usrDAO = new UsuarioDAO(conn);
+            
+            ResultSet res = usrDAO.consultarTodos();
+            
+            String nomes = "";
+            while(res.next()){
+                nomes += " ";
+                nomes += res.getString("nome_usuario") + "\n";
+                nomes += "---------------\n";
+            }
+            view.getTxt_info_todosusuarios().setText(nomes);
+            
+            
+        } catch(SQLException e){    
+            JOptionPane.showMessageDialog(view, 
+                                              e, 
+                                              "Aviso",
+                                              JOptionPane.ERROR_MESSAGE);
+        }    
+    }
 }
