@@ -89,37 +89,17 @@ public ResultSet exibirTodasMusicas(String termoPesquisa) throws SQLException {
             pstmtInserir.executeUpdate();
         }
     }
-    
-    public void registrarHistoricoPesquisa(int idUsuario, String pesquisa) throws SQLException{
-        String sqlInserir = "INSERT INTO historico (id_usuario, pesquisa) VALUES (?, ?)";
-        
-        try(PreparedStatement stmtInserir = conn.prepareStatement(sqlInserir)){
-            stmtInserir.setInt(1, idUsuario);
-            stmtInserir.setString(2, pesquisa);
-            stmtInserir.executeUpdate();
-        }catch(SQLException e) {
-            System.err.println("Erro ao registrar histórico: " + e.getMessage());
-            throw e;
+public Boolean verificarStatusCurtida(int idUsuario, int idMusica) throws SQLException {
+    String sql = "SELECT curtida FROM historico WHERE id_usuario = ? AND id_musica = ?";
+    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setInt(1, idUsuario);
+        pstmt.setInt(2, idMusica);
+        try (ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getBoolean("curtida"); // Retorna true se curtiu, false se descurtiu
+            }
         }
     }
-    
-    public ResultSet exibirHistoricoCurt(int idUsu) throws SQLException{
-        String hist = "SELECT * FROM historico as hist JOIN musica as musc ON musc.id_musica = hist.id_musica where id_usuario = ?";
-        PreparedStatement statement = conn.prepareStatement(hist);
-        statement.setInt(1, idUsu);
-        statement.execute();
-        
-        return statement.getResultSet();
-    }
-    
-    public ResultSet exibirHistoricoPesq(int idUsu) throws SQLException{
-        String hist = "SELECT * FROM historico WHERE id_usuario = ? AND id_musica IS NULL";
-        PreparedStatement statement = conn.prepareStatement(hist);
-        statement.setInt(1, idUsu);
-        statement.execute();
-        
-        return statement.getResultSet();
-    }
-    
-    
+    return null; // Retorna null se não houver registro (nem curtiu, nem descurtiu)
+}
 }

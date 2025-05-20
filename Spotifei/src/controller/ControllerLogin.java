@@ -21,48 +21,49 @@ public class ControllerLogin {
     public ControllerLogin(LoginUsu view) {
         this.view = view;
     }
-public void loginUsuario() {
-    Usuario usuario = new Usuario(null, view.getEmailUsu().getText(), view.getSenhaUsu().getText());
-    Conexao conexao = new Conexao();
-    Connection conn = null;
-    try {
-        conn = conexao.getConnection();
-        UsuDAO dao = new UsuDAO(conn);
-        ResultSet res = dao.consultar(usuario);
+  public void login() {
+        String email = view.getEmailUsu().getText();
+        String senhaDigitada = view.getSenhaUsu().getText();
+        Conexao conexao = new Conexao();
 
-        if (res.next()) {
-            int idUsuario = res.getInt("id_usuario"); // Supondo que sua coluna de ID se chame "id_do_usuario"
+        try (Connection conn = conexao.getConnection()) {
+            UsuDAO usrDAO = new UsuDAO(conn);
+            ResultSet res = usrDAO.loginUsu(new Usuario(email,senhaDigitada));
 
-            try {
-                // Cria e tenta exibir a tela MenuUsu
-                MenuUsu telaMenu = new MenuUsu(idUsuario);
-                telaMenu.setVisible(true);
+            if (res.next()) {
+                Autenticacao usuCorreto = new Usuario(
+                    res.getString("nome_usuario"),
+                    res.getString("email"),
+                    res.getString("senha")
+                );
 
-                // Fecha a tela de login após abrir a MenuUsu (opcional)
-                view.dispose();
-            } catch (Exception ex) {
-                // Se ocorrer algum erro ao abrir a MenuUsu
-                JOptionPane.showMessageDialog(view, "Erro ao abrir a tela Menu!", "Erro", JOptionPane.ERROR_MESSAGE);
-                ex.printStackTrace(); // Imprime o erro para depuração
-                // A tela de login permanecerá aberta
+                if (usuCorreto.login(senhaDigitada)) {
+                    MenuUsu mADM = new MenuUsu();
+                    mADM.setVisible(true);
+                    view.setVisible(false);
+                    JOptionPane.showMessageDialog(view, 
+                                                  "Login efetuado com sucesso", 
+                                                  "Aviso",
+                                                  JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(view, 
+                                                  "Senha incorreta", 
+                                                  "Erro",
+                                                  JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(view, 
+                                              "Administrador não encontrado", 
+                                              "Erro",
+                                              JOptionPane.ERROR_MESSAGE);
             }
 
-            JOptionPane.showMessageDialog(view, "Login efetuado!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(view, "Login NÃO efetuado!", "Aviso", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(view, "Erro de conexão!", "Aviso", JOptionPane.ERROR_MESSAGE);
-        e.printStackTrace();
-    } finally {
-        try {
-            if (conn != null) {
-                conn.close();
-            }
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(view, 
+                                          e.getMessage(), 
+                                          "Erro",
+                                          JOptionPane.ERROR_MESSAGE);
         }
     }
-}
 }
 

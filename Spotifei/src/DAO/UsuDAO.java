@@ -36,5 +36,15 @@ public class UsuDAO {
         statement.execute();
         conn.close();
     }
+    public ResultSet loginUsu(Usuario usu) throws SQLException{
+        String sql = "select * from usuario where email = ? AND senha = ? ";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, usu.getEmail());
+        statement.setString(2, usu.getSenha());
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        
+        return resultado;
+    }
     
 }

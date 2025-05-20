@@ -17,11 +17,12 @@ public class Usuario extends Pessoa implements Autenticacao{
         this.email = email;
         this.senha = senha;
     }
-    
-    public Usuario(String nome_usuario) {
-        super(nome_usuario);
-    }
 
+    public Usuario(String email,String senha) {
+        super("nulo");
+        this.email = email;
+        this.senha = senha;
+    }
 
     public String getEmail() {
         return email;
