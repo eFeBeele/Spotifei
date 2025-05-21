@@ -3,14 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/view/MenuUsu.java</file>
+            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/model/Artista.java</file>
+            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/model/Autenticacao.java</file>
+            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/model/Musica.java</file>
             <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/spotifei/TesteConexaoJDBC.java</file>
-            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/model/Pessoa.java</file>
+            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/view/LoginUsu.java</file>
+            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/DAO/UsuDAO.java</file>
+            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/view/MenuUsu.java</file>
             <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/controller/ControllerPesquisa.java</file>
             <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/DAO/MusicaDAO.java</file>
-            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/view/LoginUsu.java</file>
-            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/controller/ControllerLogin.java</file>
-            <file>file:/C:/Users/Arthur/Downloads/Spotifei/Spotifei/src/DAO/UsuDAO.java</file>
         </group>
     </open-files>
 </project-private>

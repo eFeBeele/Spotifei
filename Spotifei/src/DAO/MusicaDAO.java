@@ -23,25 +23,26 @@ public class MusicaDAO {
         this.conn = conn;
     }
     
-public ResultSet exibirTodasMusicas(String termoPesquisa) throws SQLException {
-    String sql = "SELECT m.id_musica, m.nome_musica, m.curtidas, m.descurtidas, m.duracao, " +
-                 "a.nome_artista, g.nome AS genero " +
-                 "FROM musica m " + 
-                 "LEFT JOIN artista_musica am ON m.id_musica = am.id_musica " + 
-                 "LEFT JOIN artista a ON am.id_artista = a.id_artista " + 
-                 "LEFT JOIN musica_genero mg ON m.id_musica = mg.id_musica " + 
-                 "LEFT JOIN genero g ON mg.id_genero = g.id_genero " + 
-                 "WHERE m.nome_musica LIKE ? OR a.nome_artista LIKE ? OR g.nome LIKE ?";
+    public ResultSet exibirTodasMusicas(String termoPesquisa) throws SQLException {
+        String sql = "SELECT m.id_musica, m.nome_musica, m.curtidas, m.descurtidas, m.duracao, " +
+                     "a.nome_artista, g.nome AS genero " +
+                     "FROM musica m " + 
+                     "LEFT JOIN artista_musica am ON m.id_musica = am.id_musica " + 
+                     "LEFT JOIN artista a ON am.id_artista = a.id_artista " + 
+                     "LEFT JOIN musica_genero mg ON m.id_musica = mg.id_musica " + 
+                     "LEFT JOIN genero g ON mg.id_genero = g.id_genero " + 
+                     "WHERE m.nome_musica LIKE ? OR a.nome_artista LIKE ? OR g.nome LIKE ?";
 
-    PreparedStatement statement = conn.prepareStatement(sql);
+        PreparedStatement statement = conn.prepareStatement(sql);
 
-    statement.setString(1, "%" + termoPesquisa + "%"); 
-    statement.setString(2, "%" + termoPesquisa + "%"); 
-    statement.setString(3, "%" + termoPesquisa + "%"); 
+        statement.setString(1, "%" + termoPesquisa + "%"); 
+        statement.setString(2, "%" + termoPesquisa + "%"); 
+        statement.setString(3, "%" + termoPesquisa + "%"); 
 
-    statement.execute();
-    return statement.getResultSet();
-}
+        statement.execute();
+        return statement.getResultSet();
+    }
+    
     public void atualizarCurtidaDescurtida(int idMusica, int novasCurtidas, int novasDescurtidas) throws SQLException {
         String sql = "UPDATE musica SET curtidas = ?, descurtidas = ? WHERE id_musica = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -121,5 +122,18 @@ public ResultSet exibirTodasMusicas(String termoPesquisa) throws SQLException {
         return statement.getResultSet();
     }
     
-    
+    public Boolean buscarStatusCurtida(int idUsuario, int idMusica) throws SQLException {
+        String sql = "SELECT curtida FROM historico WHERE id_usuario = ? AND id_musica = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, idUsuario);
+            stmt.setInt(2, idMusica);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getBoolean("curtida"); // true = curtiu, false = descurtiu
+            } else {
+                return null; // ainda não fez nenhuma ação
+            }
+        }
+    }
 }

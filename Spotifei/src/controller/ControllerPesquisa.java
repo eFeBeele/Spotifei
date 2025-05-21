@@ -86,45 +86,57 @@ public class ControllerPesquisa {
         }
     }
 
-    public void curtirMusica() throws SQLException{
-            Conexao conexao = new Conexao();
-            Connection conn = conexao.getConnection();
-            MusicaDAO muscDAO = new MusicaDAO(conn);
+    public void curtirMusica() throws SQLException {
+        Conexao conexao = new Conexao();
+        Connection conn = conexao.getConnection();
+        MusicaDAO muscDAO = new MusicaDAO(conn);
+
         if (musicasEncontradas != null && !musicasEncontradas.isEmpty() && indiceAtual >= 0 && indiceAtual < musicasEncontradas.size()) {
             Musica musicaAtual = musicasEncontradas.get(indiceAtual);
+            int idMusica = musicaAtual.getIdMusica();
+            int idUsuario = view.getIdUsu();
 
-            try {
-                muscDAO.atualizarCurtidaDescurtida(musicaAtual.getIdMusica(), musicaAtual.getCurtidas() + 1, musicaAtual.getDescurtidas());
-                muscDAO.registrarHistoricoCurtida(view.getIdUsu(), musicaAtual.getIdMusica()); // Registra a curtida no histórico
-		atualizarCurtidaDescurtida(musicaAtual.getIdMusica(), musicaAtual.getCurtidas() + 1, musicaAtual.getDescurtidas());
+            Boolean status = muscDAO.buscarStatusCurtida(idUsuario, idMusica);
+
+            if (status == null || !status) {
+                muscDAO.atualizarCurtidaDescurtida(idMusica, musicaAtual.getCurtidas() + 1, musicaAtual.getDescurtidas() - (status == null ? 0 : 1));
+                muscDAO.registrarHistoricoCurtida(idUsuario, idMusica);
                 musicaAtual.setCurtidas(musicaAtual.getCurtidas() + 1);
+                if (status != null && !status) {
+                    musicaAtual.setDescurtidas(musicaAtual.getDescurtidas() - 1);
+                }
                 exibirMusicaAtual();
-            } catch (SQLException e) {
-                System.err.println("Erro ao curtir música: " + e.getMessage());
-                // Trate o erro conforme a necessidade da sua aplicação
             }
         }
+        conn.close();
     }
 
-    public void descurtirMusica() throws SQLException{
-            Conexao conexao = new Conexao();
-            Connection conn = conexao.getConnection();
-            MusicaDAO muscDAO = new MusicaDAO(conn);
+
+    public void descurtirMusica() throws SQLException {
+        Conexao conexao = new Conexao();
+        Connection conn = conexao.getConnection();
+        MusicaDAO muscDAO = new MusicaDAO(conn);
+
         if (musicasEncontradas != null && !musicasEncontradas.isEmpty() && indiceAtual >= 0 && indiceAtual < musicasEncontradas.size()) {
             Musica musicaAtual = musicasEncontradas.get(indiceAtual);
+            int idMusica = musicaAtual.getIdMusica();
+            int idUsuario = view.getIdUsu();
 
-            try {
-                muscDAO.atualizarCurtidaDescurtida(musicaAtual.getIdMusica(), musicaAtual.getCurtidas(), musicaAtual.getDescurtidas() + 1);
-                muscDAO.registrarHistoricoDescurtida(view.getIdUsu(), musicaAtual.getIdMusica()); // Registra a descurtida no histórico
-            	atualizarCurtidaDescurtida(musicaAtual.getIdMusica(), musicaAtual.getCurtidas(), musicaAtual.getDescurtidas() + 1);
+            Boolean status = muscDAO.buscarStatusCurtida(idUsuario, idMusica);
+
+            if (status == null || status) {
+                muscDAO.atualizarCurtidaDescurtida(idMusica, musicaAtual.getCurtidas() - (status == null ? 0 : 1), musicaAtual.getDescurtidas() + 1);
+                muscDAO.registrarHistoricoDescurtida(idUsuario, idMusica);
                 musicaAtual.setDescurtidas(musicaAtual.getDescurtidas() + 1);
+                if (status != null && status) {
+                    musicaAtual.setCurtidas(musicaAtual.getCurtidas() - 1);
+                }
                 exibirMusicaAtual();
-            } catch (SQLException e) {
-                System.err.println("Erro ao descurtir música: " + e.getMessage());
-                // Trate o erro conforme a necessidade da sua aplicação
             }
         }
+        conn.close();
     }
+
 
 
     private void atualizarCurtidaDescurtida(int idMusica, int novasCurtidas, int novasDescurtidas) {
@@ -148,33 +160,58 @@ public class ControllerPesquisa {
             Connection conn = conexao.getConnection();
             MusicaDAO muscDAO = new MusicaDAO(conn);
             ResultSet histPesq = muscDAO.exibirHistoricoPesq(view.getIdUsu());
-            ResultSet histCurt = muscDAO.exibirHistoricoCurt(view.getIdUsu());
+            ResultSet histCurt = muscDAO.exibirHistoricoCurt(view.getIdUsu());      
             
             // Historico Pesq
-            String mostraPesq = "";
+            ArrayList<String> pesquisas = new ArrayList();
             
             while(histPesq.next()){
+                String mostraPesq = "";
                 mostraPesq += histPesq.getString("pesquisa");
                 mostraPesq += "\n--------------------\n";
+                pesquisas.add(mostraPesq);
             }
-            view.getTxt_mostra_historico_pesq().setText(mostraPesq);
+            String finalPesq = "";
+
+            int index = pesquisas.size() - 1;
+            int vezes = 10;
+            while (vezes > 0 && index >= 0) {
+                finalPesq += pesquisas.get(index);
+                index--;
+                vezes--;
+            }
+            
+            view.getTxt_mostra_historico_pesq().setText(finalPesq);
             
             // Historico Curti
-            String mostraCurt = "";
-
+            ArrayList<String> interacoe = new ArrayList();
             while (histCurt.next()) {
+                String mostraCurt = "";
                 String nome = histCurt.getString("nome_musica");
                 boolean curtiu = histCurt.getBoolean("curtida");
 
                 mostraCurt += nome + " ";
                 mostraCurt += (curtiu ? " CURTIU" : " DESCURTIU");
                 mostraCurt += "\n--------------------\n";
+                interacoe.add(mostraCurt);
             }
-            view.getTxt_mostra_historico_curt().setText(mostraCurt);
+            
+            String finalCurt = "";
+            int vezes2 = 10;
+            int index2 = interacoe.size() - 1;
+
+            while (vezes2 > 0 && index2 >= 0) {
+                finalCurt += interacoe.get(index2);
+                index2--;
+                vezes2--;
+            }
+
+            view.getTxt_mostra_historico_curt().setText(finalCurt);
+            
             conn.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(view,
-                    "Erro ao curtir/descurtir a música: " + e.getMessage(),
+                    e.getMessage(),
                     "Erro",
                     JOptionPane.ERROR_MESSAGE);
         }
