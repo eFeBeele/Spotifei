@@ -589,9 +589,6 @@ public class menuAdm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_duracao_segundos_musicaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
