@@ -17,6 +17,7 @@ import view.*;
  */
 public class ControllerLogin {
     private LoginUsu view;
+    private int id;
 
     public ControllerLogin(LoginUsu view) {
         this.view = view;
@@ -28,7 +29,8 @@ public class ControllerLogin {
 
         try (Connection conn = conexao.getConnection()) {
             UsuDAO usrDAO = new UsuDAO(conn);
-            ResultSet res = usrDAO.loginUsu(new Usuario(email,senhaDigitada));
+            Usuario usuario = new Usuario(email,senhaDigitada);
+            ResultSet res = usrDAO.loginUsu(usuario);
 
             if (res.next()) {
                 Autenticacao usuCorreto = new Usuario(
@@ -38,7 +40,11 @@ public class ControllerLogin {
                 );
 
                 if (usuCorreto.login(senhaDigitada)) {
-                    MenuUsu mADM = new MenuUsu();
+                    ResultSet rest = usrDAO.consultar(usuario);
+                    if(rest.next()){
+                    id =rest.getInt("id_usuario");
+                    }
+                    MenuUsu mADM = new MenuUsu(id);
                     mADM.setVisible(true);
                     view.setVisible(false);
                     JOptionPane.showMessageDialog(view, 
@@ -53,7 +59,7 @@ public class ControllerLogin {
                 }
             } else {
                 JOptionPane.showMessageDialog(view, 
-                                              "Administrador não encontrado", 
+                                              "Usuario não encontrado", 
                                               "Erro",
                                               JOptionPane.ERROR_MESSAGE);
             }

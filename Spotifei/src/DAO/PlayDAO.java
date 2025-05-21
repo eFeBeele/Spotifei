@@ -30,8 +30,7 @@ public class PlayDAO {
     }
 
     public void insert(Playlist playlist) throws SQLException {
-        // id_playlist é GENERATED ALWAYS AS IDENTITY, então não o incluímos na instrução INSERT
-        // O id_usuariodono é passado no objeto playlist, como antes.
+
         String sql = "INSERT INTO playlist (nome_playlist, visibilidade, id_usuariodono) VALUES (?,?,?)";
 
         PreparedStatement statement = null;
@@ -63,23 +62,16 @@ public class PlayDAO {
         }
     }
 
-    /**
-     * Similar ao seu exibirTodasMusicas, mas para playlists e filtrado por id_usuariodono.
-     * Retorna um ResultSet.
-     * @param idUsuarioDono O ID do usuário dono das playlists.
-     * @return ResultSet contendo as playlists encontradas.
-     * @throws SQLException Se ocorrer um erro de acesso ao banco de dados.
-     */
     public ResultSet exibirTodasPlaylistsPorUsuario(int idUsuarioDono) throws SQLException {
         String sql = "SELECT id_playlist, nome_playlist, visibilidade, id_usuariodono " +
                      "FROM playlist " +
                      "WHERE id_usuariodono = ?"; // Filtra pelo ID do dono
 
-        // Cria o PreparedStatement. Ele será fechado no Controller para seguir seu padrão.
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setInt(1, idUsuarioDono); // Define o id_usuariodono
 
-        return statement.executeQuery(); // Retorna o ResultSet
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, idUsuarioDono); 
+
+        return statement.executeQuery(); 
     }
     public boolean update(int idPlaylist, String novoNome) throws SQLException {
         String sql = "UPDATE playlist SET nome_playlist = ? WHERE id_playlist = ?";
@@ -97,11 +89,10 @@ public class PlayDAO {
         }
     }
  public void adicionarMusicaNaPlaylist(int idPlaylist, int idMusica) throws SQLException {
-        // A tabela 'playlist_musica' é uma tabela de junção (muitos-para-muitos)
-        // que armazena os IDs das playlists e músicas para criar o relacionamento.
+
         String sql = "INSERT INTO playlist_musica (id_playlist, id_musica) VALUES (?, ?)";
 
-        // Usamos try-with-resources para garantir que o PreparedStatement seja fechado automaticamente.
+
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, idPlaylist);
             pstmt.setInt(2, idMusica);
@@ -116,11 +107,27 @@ public class PlayDAO {
 
         } catch (SQLException e) {
             System.err.println("Erro de SQL ao adicionar música na playlist (PlaylistDAO): " + e.getMessage());
-            // É uma boa prática relançar a exceção para que o controller ou a camada superior
-            // possa lidar com ela (ex: exibir uma mensagem de erro ao usuário).
+
             throw e;
         }
-        // Não fechamos a conexão aqui, pois ela foi passada para o DAO.
-        // A responsabilidade de fechar a conexão é de quem a abriu (o controller ou a camada de serviço).
+
     }
+public int removerMusicaDaPlaylist(int idPlaylist, int idMusica) throws SQLException {
+
+    String sql = "DELETE FROM playlist_musica WHERE id_playlist = ? AND id_musica = ?";
+
+    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setInt(1, idPlaylist);
+        pstmt.setInt(2, idMusica);
+
+        int linhasAfetadas = pstmt.executeUpdate(); 
+
+        if (linhasAfetadas > 0) {
+            System.out.println("Música com ID " + idMusica + " removida da playlist com ID " + idPlaylist + " com sucesso!");
+        } else {
+            System.out.println("Não foi possível remover a música da playlist. Verifique os IDs ou se a combinação não existe.");
+        }
+        return linhasAfetadas;
+    }
+}
 }

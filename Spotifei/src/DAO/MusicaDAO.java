@@ -68,7 +68,7 @@ public ResultSet exibirTodasMusicas(String termoPesquisa) throws SQLException {
              PreparedStatement pstmtDeletar = conn.prepareStatement(sqlDeletar);
              PreparedStatement pstmtInserir = conn.prepareStatement(sqlInserir)) {
 
-            // Verificar se já existe um registro
+
             pstmtVerificar.setInt(1, idUsuario);
             pstmtVerificar.setInt(2, idMusica);
             ResultSet rs = pstmtVerificar.executeQuery();
@@ -76,13 +76,13 @@ public ResultSet exibirTodasMusicas(String termoPesquisa) throws SQLException {
             int count = rs.getInt(1);
 
             if (count > 0) {
-                // Deletar o registro existente
+
                 pstmtDeletar.setInt(1, idUsuario);
                 pstmtDeletar.setInt(2, idMusica);
                 pstmtDeletar.executeUpdate();
             }
 
-            // Criar um novo registro
+
             pstmtInserir.setInt(1, idUsuario);
             pstmtInserir.setInt(2, idMusica);
             pstmtInserir.setBoolean(3, curtida);
@@ -96,10 +96,34 @@ public Boolean verificarStatusCurtida(int idUsuario, int idMusica) throws SQLExc
         pstmt.setInt(2, idMusica);
         try (ResultSet rs = pstmt.executeQuery()) {
             if (rs.next()) {
-                return rs.getBoolean("curtida"); // Retorna true se curtiu, false se descurtiu
+                return rs.getBoolean("curtida"); 
             }
         }
     }
-    return null; // Retorna null se não houver registro (nem curtiu, nem descurtiu)
+    return null; 
+}
+public ResultSet exibirTodasMusicasR(String termoPesquisa, int idPlaylist) throws SQLException { 
+    String sql = "SELECT m.id_musica, m.nome_musica, m.curtidas, m.descurtidas, m.duracao, " +
+                 "a.nome_artista, g.nome AS genero " +
+                 "FROM musica m " +
+                 "LEFT JOIN artista_musica am ON m.id_musica = am.id_musica " +
+                 "LEFT JOIN artista a ON am.id_artista = a.id_artista " +
+                 "LEFT JOIN musica_genero mg ON m.id_musica = mg.id_musica " +
+                 "LEFT JOIN genero g ON mg.id_genero = g.id_genero " +
+                 "JOIN playlist_musica pu ON m.id_musica = pu.id_musica " +
+                 "WHERE pu.id_playlist = ? " + 
+                 "AND (m.nome_musica LIKE ? OR a.nome_artista LIKE ? OR g.nome LIKE ?)"; 
+
+    PreparedStatement statement = conn.prepareStatement(sql);
+
+
+    statement.setInt(1, idPlaylist);
+
+    statement.setString(2, "%" + termoPesquisa + "%");
+    statement.setString(3, "%" + termoPesquisa + "%");
+    statement.setString(4, "%" + termoPesquisa + "%");
+
+    statement.execute();
+    return statement.getResultSet();
 }
 }

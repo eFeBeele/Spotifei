@@ -22,7 +22,7 @@ public class UsuDAO {
     }
     
     public ResultSet consultar(Usuario usuario) throws SQLException{
-        String sql = "select * from usuario where email = ? and senha = ?";
+        String sql = "select id_usuario from usuario where email = ? and senha = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, usuario.getEmail());
         statement.setString(2, usuario.getSenha());
@@ -30,6 +30,7 @@ public class UsuDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
+    
     public void inserir(Usuario usuario) throws SQLException{
         String sql = "insert into usuario (nome_usuario,senha,email,adm) values ('"+ usuario.getNome()    + "', '"+ usuario.getSenha() + "', '"+ usuario.getEmail()   + "',false)";
         PreparedStatement statement = conn.prepareStatement(sql);
