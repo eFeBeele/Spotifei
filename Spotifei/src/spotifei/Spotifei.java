@@ -4,6 +4,8 @@
  */
 package spotifei;
 
+import view.LoginUsu;
+
 /**
  *
  * @author unifflopes
@@ -14,7 +16,8 @@ public class Spotifei {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        LoginUsu lu = new LoginUsu();
+        lu.setVisible(true);
     }
     
 }
