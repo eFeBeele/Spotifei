@@ -794,4 +794,18 @@ public void mostraHistorico(){
                     JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    public void proximaMusicaR() {
+        if (musicasEncontradas != null && !musicasEncontradas.isEmpty() && indiceAtualmus < musicasEncontradas.size() - 1) {
+            indiceAtualmus++;
+            exibirMusicaAtualR();
+        }
+    }
+
+    public void musicaAnteriorR() {
+        if (musicasEncontradas != null && !musicasEncontradas.isEmpty() && indiceAtualmus > 0) {
+            indiceAtualmus--;
+            exibirMusicaAtualR();
+        }
+    }
 }

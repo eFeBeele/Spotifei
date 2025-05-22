@@ -22,20 +22,30 @@ public class ControllerCadastro {
         this.view = view;
     }
     
-    public void salvarUsuario(){
-        String nome = view.getNomeUsu().getText();
-        String email = view.getEmailUsu().getText();
-        String senha = view.getSenhaUsu().getText();
-        Usuario usuario = new Usuario(nome, email,senha);
-        
-        Conexao conexao = new Conexao();
-        try {
-            Connection conn = conexao.getConnection();
-            UsuDAO dao = new UsuDAO(conn);
-            dao.inserir(usuario);
-            JOptionPane.showMessageDialog(view, "Usuario Cadastrado!","Aviso", JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(view, "Usuário não cadastrado!","Erro", JOptionPane.ERROR_MESSAGE);
-        }
+public void salvarUsuario() {
+    String nome = view.getNomeUsu().getText();
+    String email = view.getEmailUsu().getText();
+    String senha = view.getSenhaUsu().getText();
+
+    if (nome == null || nome.trim().isEmpty() ||
+        email == null || email.trim().isEmpty() ||
+        senha == null || senha.trim().isEmpty()) {
+
+        JOptionPane.showMessageDialog(view, "Todos os campos são obrigatórios!", "Erro de Validação", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    Usuario usuario = new Usuario(nome, email, senha);
+    Conexao conexao = new Conexao();
+
+    try {
+        Connection conn = conexao.getConnection();
+        UsuDAO dao = new UsuDAO(conn);
+        dao.inserir(usuario);
+        JOptionPane.showMessageDialog(view, "Usuário Cadastrado!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(view, "Usuário não cadastrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+        ex.printStackTrace(); 
+    }
     }
 }

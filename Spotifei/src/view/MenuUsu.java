@@ -175,6 +175,13 @@ public class MenuUsu extends javax.swing.JFrame {
         ProxMu = new javax.swing.JButton();
         CurMu = new javax.swing.JButton();
         DescuMu = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        txt_mostra_historico_curt = new javax.swing.JTextArea();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        txt_mostra_historico_pesq = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         NomePlay = new javax.swing.JTextField();
@@ -230,15 +237,8 @@ public class MenuUsu extends javax.swing.JFrame {
         ResultadoMusicaA = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jButton16 = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        txt_mostra_historico_curt = new javax.swing.JTextArea();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        txt_mostra_historico_pesq = new javax.swing.JTextArea();
-        jLabel9 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jButton17 = new javax.swing.JButton();
 
         jTextField2.setText("jTextField2");
 
@@ -349,6 +349,57 @@ public class MenuUsu extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Pesquisa", jPanel1);
+
+        jLabel8.setText("Pesquisas");
+
+        txt_mostra_historico_curt.setColumns(20);
+        txt_mostra_historico_curt.setRows(5);
+        jScrollPane13.setViewportView(txt_mostra_historico_curt);
+
+        txt_mostra_historico_pesq.setColumns(20);
+        txt_mostra_historico_pesq.setRows(5);
+        jScrollPane14.setViewportView(txt_mostra_historico_pesq);
+
+        jLabel9.setText("Interações");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(99, 99, 99))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel7Layout.createSequentialGroup()
+                    .addGap(31, 31, 31)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(300, Short.MAX_VALUE)))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                    .addContainerGap(68, Short.MAX_VALUE)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(11, 11, 11)))
+        );
+
+        jTabbedPane1.addTab("Histórico", jPanel7);
 
         NomePlay.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
@@ -542,8 +593,18 @@ public class MenuUsu extends javax.swing.JFrame {
         });
 
         jButton13.setText("Anterior");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         jButton14.setText("Próxima");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setText("Remover");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -813,85 +874,34 @@ public class MenuUsu extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Adicionar Múscas", jPanel4);
 
-        jButton16.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jButton16.setText("SAIR");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        jTabbedPane1.addTab("Playlist", jTabbedPane2);
+
+        jButton17.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jButton17.setText("SAIR");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                jButton17ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(190, Short.MAX_VALUE)
-                .addComponent(jButton16)
-                .addGap(187, 187, 187))
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(jButton17)
+                .addContainerGap(213, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(182, 182, 182)
-                .addComponent(jButton16)
-                .addContainerGap(217, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("Sair", jPanel6);
-
-        jTabbedPane1.addTab("Playlist", jTabbedPane2);
-
-        jLabel8.setText("Pesquisas");
-
-        txt_mostra_historico_curt.setColumns(20);
-        txt_mostra_historico_curt.setRows(5);
-        jScrollPane13.setViewportView(txt_mostra_historico_curt);
-
-        txt_mostra_historico_pesq.setColumns(20);
-        txt_mostra_historico_pesq.setRows(5);
-        jScrollPane14.setViewportView(txt_mostra_historico_pesq);
-
-        jLabel9.setText("Interações");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(99, 99, 99))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7Layout.createSequentialGroup()
-                    .addGap(31, 31, 31)
-                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(300, Short.MAX_VALUE)))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                    .addContainerGap(68, Short.MAX_VALUE)
-                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(11, 11, 11)))
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(jButton17)
+                .addContainerGap(270, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Histórico", jPanel7);
+        jTabbedPane1.addTab("Sair", jPanel8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -960,9 +970,98 @@ try{
     }
     }//GEN-LAST:event_DescuMuActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        c.adicionarMusicaNaPlaylist();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        c.proximaPlaylistA();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        c.playlistAnteriorA();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        c.proximaMusicaA();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        c.musicaAnteriorA();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String x = getBuscaMusA().getText();
+        c.mostrarTodasMusicasA(x);
+        c.mostraHistorico();
+        c.exibirMusicaAtualA();
+        c.mostrarTodasPlaylistsDoUsuarioA();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void BuscaMusAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaMusAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscaMusAActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        String x = getBuscaMusR().getText();
+        c.mostrarTodasMusicasR(x);
+        c.mostraHistorico();
+        c.exibirMusicaAtualR();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        c.removerMusicaNaPlaylist();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        c.proximaMusicaR();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        c.musicaAnteriorR();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        c.proximaPlaylistR();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        c.playlistAnteriorR();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        c.mostrarTodasPlaylistsDoUsuarioR();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        c.editarNomePlaylistAtual();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void ExcPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcPlayActionPerformed
+        c.excluirPlaylistAtual();        // TODO add your handling code here:
+    }//GEN-LAST:event_ExcPlayActionPerformed
+
+    private void AntPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AntPlayActionPerformed
+        c.playlistAnterior();
+    }//GEN-LAST:event_AntPlayActionPerformed
+
+    private void ProxPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProxPlayActionPerformed
+        c.proximaPlaylist();        // TODO add your handling code here:
+    }//GEN-LAST:event_ProxPlayActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        c.mostrarTodasPlaylistsDoUsuario();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    c.salvarPlaylist();        // TODO add your handling code here:
+        c.salvarPlaylist();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    LoginUsu lu = new LoginUsu();
+    lu.setVisible(true);
+    this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton17ActionPerformed
 
     public JTextField getBuscaMusA() {
         return BuscaMusA;
@@ -1004,58 +1103,6 @@ try{
         this.ResultadoMusicaA = ResultadoMusicaA;
     }
 
-    private void AntPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AntPlayActionPerformed
-    c.playlistAnterior();
-    }//GEN-LAST:event_AntPlayActionPerformed
-
-    private void ProxPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProxPlayActionPerformed
-    c.proximaPlaylist();        // TODO add your handling code here:
-    }//GEN-LAST:event_ProxPlayActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    c.mostrarTodasPlaylistsDoUsuario();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void ExcPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcPlayActionPerformed
-    c.excluirPlaylistAtual();        // TODO add your handling code here:
-    }//GEN-LAST:event_ExcPlayActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    c.editarNomePlaylistAtual();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void BuscaMusAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaMusAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BuscaMusAActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-    String x = getBuscaMusA().getText();
-    c.mostrarTodasMusicasA(x);
-    c.mostraHistorico();
-    c.exibirMusicaAtualA();  
-    c.mostrarTodasPlaylistsDoUsuarioA();// TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    c.proximaMusicaA();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    c.musicaAnteriorA();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-    c.playlistAnteriorA();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-    c.proximaPlaylistA();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-    c.adicionarMusicaNaPlaylist();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
     public JTextArea getTxt_mostra_historico_curt() {
         return txt_mostra_historico_curt;
     }
@@ -1071,35 +1118,6 @@ try{
     public void setTxt_mostra_historico_pesq(JTextArea txt_mostra_historico_pesq) {
         this.txt_mostra_historico_pesq = txt_mostra_historico_pesq;
     }
-
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-    LoginUsu lu = new LoginUsu();
-    lu.setVisible(true);
-    this.setVisible(false);// TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-    c.removerMusicaNaPlaylist();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-    c.mostrarTodasPlaylistsDoUsuarioR();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-    c.proximaPlaylistR();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-    c.playlistAnteriorR();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-    String x = getBuscaMusR().getText();
-    c.mostrarTodasMusicasR(x);
-    c.mostraHistorico();
-    c.exibirMusicaAtualR();// TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
 
     public JTextField getBuscaMusR() {
         return BuscaMusR;
@@ -1181,6 +1199,40 @@ try{
         this.ProxPlay = ProxPlay;
     }
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MenuUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MenuUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MenuUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MenuUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MenuUsu().setVisible(true);
+            }
+        });
+    }
 private ControllerPesquisa c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AntMu;
@@ -1215,7 +1267,7 @@ private ControllerPesquisa c;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1239,8 +1291,8 @@ private ControllerPesquisa c;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
