@@ -139,11 +139,16 @@ Ao acessar o Spotifei com as credenciais de administrador (`adm@email.com` / `12
 
 ---
 
+   ## 👨‍💻 Vídeos
+
+* **SPOTIFEI (USUÁRIO)** - https://youtu.be/Ueet8l9WAmE?si=AJEJlkRJ3QVzF34_
+* **ADMINISTRADOR** - https://youtu.be/77ldfoq4z8Q
+
+---
+
 ## 👨‍💻 Desenvolvedores
 
 * **Fernando Bordin Lopes** - RA: 24.124.003-5
 * **Arthur Barbosa Zanvetor** - RA: 24.124.063-9
-
----
 
 Esperamos que você aproveite o Spotifei! Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
