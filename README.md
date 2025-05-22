@@ -84,10 +84,10 @@ Para começar a usar o **Spotifei**, siga estes passos detalhados.
 Ao iniciar a aplicação, você verá a tela de login. Você tem duas opções para começar:
 
 * **Criar uma Nova Conta (Usuário Comum):**
-    1.  Na tela inicial, clique no botão "**Cadastrar**".
-    2.  Preencha todos os campos solicitados, como seu nome, e-mail e senha.
-    3.  Após preencher, clique novamente no botão "**Cadastrar**" para finalizar o registro.
-    4.  Você será redirecionado para a tela inicial. Clique no botão "**Login**" e utilize suas credenciais recém-criadas para acessar o Spotifei.
+    *  Na tela inicial, clique no botão "**Cadastrar**".
+    *  Preencha todos os campos solicitados, como seu nome, e-mail e senha.
+    *  Após preencher, clique novamente no botão "**Cadastrar**" para finalizar o registro.
+    *  Você será redirecionado para a tela inicial. Clique no botão "**Login**" e utilize suas credenciais recém-criadas para acessar o Spotifei.
 
 * **Acessar como Administrador (Perfil Pré-existente):**
     1.  Na tela inicial, clique no botão "**Login**".
