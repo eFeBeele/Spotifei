@@ -59,20 +59,83 @@ O principal objetivo do Spotifei é oferecer uma plataforma eficiente para geren
 
 ---
 
-## ⚙️ Primeiros Passos - Como Executar
+## 🚀 Como Executar e Utilizar o Spotifei
+
+Para começar a usar o **Spotifei**, siga estes passos detalhados.
+
+### 1. Primeiros Passos - Como Executar
 
 1.  **Banco de Dados (Configuração Existente)**:
-    * Certifique-se de que você tenha acesso ao servidor PostgreSQL com as credenciais fornecidas para o projeto.
+    * Certifique-se de que você tenha acesso ao servidor **PostgreSQL** com as credenciais fornecidas para o projeto.
     * O banco de dados necessário já deve estar configurado e populado com as tabelas.
 2.  **Projeto Java (NetBeans)**:
     * Clone este repositório para o seu computador.
-    * Abra o projeto no NetBeans IDE.
-    * Verifique se a biblioteca JDBC do PostgreSQL está adicionada ao projeto. Caso contrário, adicione o JAR correspondente nas configurações de bibliotecas do projeto.
+    * Abra o projeto no **NetBeans IDE**.
+    * Verifique se a biblioteca **JDBC do PostgreSQL** está adicionada ao projeto. Caso contrário, adicione o JAR correspondente nas configurações de bibliotecas do projeto.
     * **Importante:** As configurações de conexão com o banco de dados (URL, usuário, senha) estão definidas diretamente no código-fonte Java. Certifique-se de que essas informações estejam corretas para o seu ambiente de acesso ao banco de dados.
 3.  **Execução (NetBeans)**:
-    * No NetBeans, localize a classe principal da aplicação (Spotifei, ou Administrador).
-    * Clique com o botão direito sobre essa classe e selecione "Executar Arquivo" para iniciar a aplicação.
+    * No NetBeans, localize a classe principal da aplicação (provavelmente `Spotifei.java` ou `Administrador.java`).
+    * Clique com o botão direito sobre essa classe e selecione "**Executar Arquivo**" para iniciar a aplicação.
 
+---
+
+### 2. Cadastrar e Acessar a Plataforma
+
+Ao iniciar a aplicação, você verá a tela de login. Você tem duas opções para começar:
+
+* **Criar uma Nova Conta (Usuário Comum):**
+    1.  Na tela inicial, clique no botão "**Cadastrar**".
+    2.  Preencha todos os campos solicitados, como seu nome, e-mail e senha.
+    3.  Após preencher, clique novamente no botão "**Cadastrar**" para finalizar o registro.
+    4.  Você será redirecionado para a tela inicial. Clique no botão "**Login**" e utilize suas credenciais recém-criadas para acessar o Spotifei.
+
+* **Acessar como Administrador (Perfil Pré-existente):**
+    1.  Na tela inicial, clique no botão "**Login**".
+    2.  Insira as seguintes credenciais:
+        * **E-mail:** `adm@email.com`
+        * **Senha:** `123`
+    3.  Clique em "**Login**" para entrar na plataforma com acesso de administrador.
+
+---
+
+### 3. Funcionalidades Detalhadas (Modo Usuário)
+
+Após fazer login como usuário, você poderá:
+
+* **Exploração de Conteúdo Musical:**
+    * Use a **barra de busca** para encontrar músicas digitando o **título**, o nome do **artista** ou o **gênero**.
+    * Os resultados da busca exibirão os detalhes das músicas encontradas.
+* **Interação Musical e Navegação:**
+    * Para adicionar uma música à sua lista de favoritos, clique no botão "**Curtir**".
+    * Para remover uma música dos seus favoritos, clique em "**Descurtir**".
+    * Para navegar entre as músicas (seja nos resultados de uma busca ou dentro de uma playlist), utilize os botões "**Anterior**" e "**Próxima**".
+* **Gerenciamento de Playlists:**
+    * Acesse a seção de **Playlists**.
+    * Você pode "**Criar Nova Playlist**", "**Editar**" as playlists existentes ou "**Excluir**" aquelas que não deseja mais.
+    * Para adicionar ou remover músicas de uma playlist, selecione a playlist desejada e utilize as opções de "**Adicionar Música**" ou "**Remover Música**".
+* **Histórico e Preferências:**
+    * Consulte a seção de "**Histórico**" para ver as últimas 10 músicas que você pesquisou.
+    * Acesse "**Músicas Curtidas**" para visualizar sua lista de músicas favoritas.
+    * Acesse "**Músicas Descurtidas**" para ver as músicas que você removeu dos seus favoritos.
+
+---
+
+### 4. Funcionalidades Detalhadas (Modo Administrador)
+
+Ao acessar o Spotifei com as credenciais de administrador (`adm@email.com` / `123`), você terá acesso a recursos adicionais para gerenciar o sistema:
+
+* **Gestão de Conteúdo:**
+    * **Adicionar Músicas:** Encontre a opção para "**Adicionar Nova Música**" e preencha os detalhes como título, artista, gênero, etc.
+    * **Remover Músicas:** Na lista de músicas, selecione a música que deseja excluir e clique em "**Remover Música**".
+    * **Registrar Artistas:** Utilize a seção designada (pode ser "Gerenciar Artistas") para adicionar novos artistas ao catálogo da plataforma.
+* **Consulta de Usuários:**
+    * Acesse a seção de "**Usuários Cadastrados**" para visualizar uma lista completa de todos os usuários registrados no Spotifei, juntamente com suas informações básicas.
+* **Estatísticas do Sistema:**
+    * Procure por um painel ou seção de "**Estatísticas**" onde você poderá acompanhar dados importantes, como:
+        * As 5 músicas mais curtidas pelos usuários.
+        * As 5 músicas mais descurtidas.
+        * O número total de usuários registrados na plataforma.
+        * O número total de músicas disponíveis no catálogo.
 
 ---
 
