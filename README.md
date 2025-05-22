@@ -90,11 +90,11 @@ Ao iniciar a aplicação, você verá a tela de login. Você tem duas opções p
     *  Você será redirecionado para a tela inicial. Clique no botão "**Login**" e utilize suas credenciais recém-criadas para acessar o Spotifei.
 
 * **Acessar como Administrador (Perfil Pré-existente):**
-    1.  Na tela inicial, clique no botão "**Login**".
-    2.  Insira as seguintes credenciais:
+    *  Na tela inicial, clique no botão "**Login**".
+    *  Insira as seguintes credenciais:
         * **E-mail:** `adm@email.com`
         * **Senha:** `123`
-    3.  Clique em "**Login**" para entrar na plataforma com acesso de administrador.
+    *  Clique em "**Login**" para entrar na plataforma com acesso de administrador.
 
 ---
 
