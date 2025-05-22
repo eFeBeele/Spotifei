@@ -91,7 +91,7 @@ public class ControllerMusica {
             if(txtGenero.getText().isEmpty()){
                 throw new InfoNula("ERRO! Gênero NÃO pode ser nulo");
             }else{
-                genero = txtNomeMusica.getText();
+                genero = txtGenero.getText();
             }
 
             Musica musc = new Musica(nomeMusica, curtidas, descurtidas, duracao, artistaMusica, genero);
