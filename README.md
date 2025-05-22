@@ -6,80 +6,60 @@ Bem-vindo ao **Spotifei**, seu catálogo digital de músicas e podcasts! Inspira
 
 O principal objetivo do Spotifei é oferecer uma plataforma eficiente para gerenciar e consultar metadados de áudios digitais, como músicas e podcasts. Focamos na organização e apresentação de informações relevantes, proporcionando uma experiência informativa similar à de um serviço de streaming.
 
-## 🛠️ Tecnologias Empregadas
+## 👤 Funcionalidades do Usuário
 
-* **Interface Gráfica**: Java Swing
-* **Banco de Dados**: JDBC (Java Database Connectivity)
-* **SGBD**: PostgreSQL
-* **Arquitetura**: MVC (Model-View-Controller)
+O Spotifei oferece aos usuários uma experiência completa para a interação com o universo musical:
 
-## ✨ Funcionalidades Detalhadas
+### Cadastro e Login
+* **Crie sua conta no Spotifei**: Registre-se para ter acesso a todas as funcionalidades da plataforma.
+* **Acesse a plataforma com suas credenciais**: Faça login de forma segura para começar a explorar.
 
-### 👤 Usuário
+### Exploração de Conteúdo Musical
+* **Busque músicas por título, artista ou gênero**: Encontre suas músicas favoritas de maneira rápida e eficiente.
+* **Visualize os detalhes de cada música encontrada**: Obtenha informações como álbum, duração e artista para cada faixa.
 
-#### 1. Cadastro e Login
-* Crie sua conta no Spotifei.
-* Acesse a plataforma com suas credenciais.
+### Interação Musical
+* **Marque suas músicas favoritas com um "curtir"**: Salve as músicas que você adora para acessar facilmente depois.
+* **Remova músicas da sua lista de favoritos com "descurtir"**: Gerencie sua lista de favoritos, retirando as músicas que não deseja mais ter salvas.
 
-#### 2. Exploração de Conteúdo Musical
-* Busque músicas por título, artista ou gênero.
-* Visualize os detalhes de cada música encontrada.
+### Gerenciamento de Playlists
+* **Crie, edite e exclua suas playlists personalizadas**: Organize suas músicas em listas do seu jeito.
+* **Adicione e remova músicas de suas playlists**: Personalize suas playlists adicionando ou retirando faixas.
 
-#### 3. Interação Musical
-* Marque suas músicas favoritas com um "curtir".
-* Remova músicas da sua lista de favoritos com "descurtir".
-
-#### 4. Gerenciamento de Playlists
-* Crie, edite e exclua suas playlists personalizadas.
-* Adicione e remova músicas de suas playlists.
-
-#### 5. Histórico e Preferências
-* Veja as últimas 10 músicas que você buscou.
-* Consulte sua lista de músicas curtidas.
-* Acesse sua lista de músicas descurtidas.
-
-### 👑 Administrador
-
-#### 1. Acesso Administrativo
-* Faça login com suas credenciais de administrador.
-
-#### 2. Gestão de Conteúdo
-* Adicione novas músicas ao sistema.
-* Remova músicas existentes do catálogo.
-* Registre novos artistas na plataforma.
-
-#### 3. Consulta de Usuários
-* Visualize informações sobre os usuários cadastrados.
-
-#### 4. Estatísticas do Sistema
-* Descubra as 5 músicas mais curtidas pelos usuários.
-* Identifique as 5 músicas mais descurtidas.
-* Acompanhe o número total de usuários registrados.
-* Verifique o número total de músicas disponíveis.
+### Histórico e Preferências
+* **Veja as últimas 10 músicas que você buscou**: Revise seu histórico de buscas para reencontrar músicas.
+* **Consulte sua lista de músicas curtidas**: Acesse rapidamente todas as músicas que você marcou como favoritas.
+* **Acesse sua lista de músicas descurtidas**: Verifique as músicas que você removeu da sua lista de favoritos.
 
 ---
 
-## 🚀 Como Executar e Utilizar o Spotifei
+## 👑 Funcionalidades do Administrador
+
+Para os administradores, o Spotifei oferece ferramentas robustas para a gestão do conteúdo e monitoramento da plataforma:
+
+### Acesso Administrativo
+* **Faça login com suas credenciais de administrador**: Acesse o painel de controle com permissões elevadas.
+
+### Gestão de Conteúdo
+* **Adicione novas músicas ao sistema**: Expanda o catálogo do Spotifei com novas faixas.
+* **Remova músicas existentes do catálogo**: Mantenha o catálogo atualizado, retirando músicas quando necessário.
+* **Registre novos artistas na plataforma**: Inclua novos talentos e grupos musicais no Spotifei.
+
+### Consulta de Usuários
+* **Visualize informações sobre os usuários cadastrados**: Acesse detalhes dos perfis de usuário para suporte e gerenciamento.
+
+### Estatísticas do Sistema
+* **Descubra as 5 músicas mais curtidas pelos usuários**: Identifique as músicas de maior sucesso na plataforma.
+* **Identifique as 5 músicas mais descurtidas**: Entenda quais músicas não estão agradando tanto aos usuários.
+* **Acompanhe o número total de usuários registrados**: Monitore o crescimento da base de usuários.
+* **Verifique o número total de músicas disponíveis**: Tenha uma visão geral do tamanho do acervo musical da plataforma.
+---
+
+## 🚀 Como utilizar o Spotifei
 
 Para começar a usar o **Spotifei**, siga estes passos detalhados.
 
-### 1. Primeiros Passos - Como Executar
-
-1.  **Banco de Dados (Configuração Existente)**:
-    * Certifique-se de que você tenha acesso ao servidor **PostgreSQL** com as credenciais fornecidas para o projeto.
-    * O banco de dados necessário já deve estar configurado e populado com as tabelas.
-2.  **Projeto Java (NetBeans)**:
-    * Clone este repositório para o seu computador.
-    * Abra o projeto no **NetBeans IDE**.
-    * Verifique se a biblioteca **JDBC do PostgreSQL** está adicionada ao projeto. Caso contrário, adicione o JAR correspondente nas configurações de bibliotecas do projeto.
-    * **Importante:** As configurações de conexão com o banco de dados (URL, usuário, senha) estão definidas diretamente no código-fonte Java. Certifique-se de que essas informações estejam corretas para o seu ambiente de acesso ao banco de dados.
-3.  **Execução (NetBeans)**:
-    * No NetBeans, localize a classe principal da aplicação (provavelmente `Spotifei.java` ou `Administrador.java`).
-    * Clique com o botão direito sobre essa classe e selecione "**Executar Arquivo**" para iniciar a aplicação.
-
----
-
-### 2. Cadastrar e Acessar a Plataforma
+### 1. Cadastrar e Acessar a Plataforma
 
 Ao iniciar a aplicação, você verá a tela de login. Você tem duas opções para começar:
 
@@ -87,7 +67,7 @@ Ao iniciar a aplicação, você verá a tela de login. Você tem duas opções p
     *  Na tela inicial, clique no botão "**Cadastrar**".
     *  Preencha todos os campos solicitados, como seu nome, e-mail e senha.
     *  Após preencher, clique novamente no botão "**Cadastrar**" para finalizar o registro.
-    *  Você será redirecionado para a tela inicial. Clique no botão "**Login**" e utilize suas credenciais recém-criadas para acessar o Spotifei.
+    *  Após isso, clique em "**Login**" e vá para a tela inicial. Utilize suas credenciais recém-criadas para acessar o Spotifei e clique em "**Login**".
 
 * **Acessar como Administrador (Perfil Pré-existente):**
     *  Na tela inicial, clique no botão "**Login**".
@@ -98,7 +78,7 @@ Ao iniciar a aplicação, você verá a tela de login. Você tem duas opções p
 
 ---
 
-### 3. Funcionalidades Detalhadas (Modo Usuário)
+### 2. Funcionalidades Detalhadas (Modo Usuário)
 
 Após fazer login como usuário, você poderá:
 
@@ -120,7 +100,7 @@ Após fazer login como usuário, você poderá:
 
 ---
 
-### 4. Funcionalidades Detalhadas (Modo Administrador)
+### 3. Funcionalidades Detalhadas (Modo Administrador)
 
 Ao acessar o Spotifei com as credenciais de administrador (`adm@email.com` / `123`), você terá acesso a recursos adicionais para gerenciar o sistema:
 
