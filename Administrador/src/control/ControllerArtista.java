@@ -57,7 +57,7 @@ public class ControllerArtista {
         
         try (Connection conn = conexao.getConnection()) {
             ArtistaDAO aDAO = new ArtistaDAO(conn);
-            aDAO.excluir(nome_artista);
+            aDAO.excluir(nome_artista.trim());
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(view, 
                                           e.getMessage(), 
