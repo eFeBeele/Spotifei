@@ -128,7 +128,7 @@ Ao acessar o Spotifei com as credenciais de administrador (`adm@email.com` / `12
 
 ## 👨‍💻 Desenvolvedores
 
-* **Fernando Bordin Lopes** - RA: 24.124.003-5
-* **Arthur Barbosa Zanvetor** - RA: 24.124.063-9
+* **Fernando Bordin Lopes**
+* **Arthur Barbosa Zanvetor**
 
 Esperamos que você aproveite o Spotifei! Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
