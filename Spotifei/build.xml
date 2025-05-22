@@ -70,4 +70,28 @@
     nbproject/build-impl.xml file. 
 
     -->
+    
+    
+    <description>Builds, tests, and runs the project Spotifei.</description>
+    <import file="nbproject/build-impl.xml"/>
+
+    <target name="-post-jar">
+        <property name="final.jar.name" value="${ant.project.name}-all-in-one.jar"/>
+        <property name="final.jar.path" value="${dist.dir}/${final.jar.name}"/>
+
+        <echo message="Criando JAR unificado com todas as dependências em ${final.jar.path}"/>
+
+        <jar destfile="${final.jar.path}" filesetmanifest="skip">
+            <zipfileset src="${dist.jar}"/>
+
+            <zipgroupfileset dir="${dist.dir}/lib" includes="*.jar"/>
+
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
+
+        <echo message="JAR unificado criado com sucesso!"/>
+
+        </target>
 </project>
