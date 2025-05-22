@@ -139,7 +139,7 @@ Ao acessar o Spotifei com as credenciais de administrador (`adm@email.com` / `12
 
 ---
 
-   ## 👨‍💻 Vídeos
+## 📹 Vídeos
 
 * **SPOTIFEI (USUÁRIO)** - https://youtu.be/Ueet8l9WAmE?si=AJEJlkRJ3QVzF34_
 * **ADMINISTRADOR** - https://youtu.be/77ldfoq4z8Q
