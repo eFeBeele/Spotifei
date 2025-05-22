@@ -28,7 +28,7 @@ public class ControllerArtista {
     
     public void adicionarArtista() {
         Conexao conexao = new Conexao();
-        String nome_artista = view.getTxt_nome_artista().getText();
+        String nome_artista = view.getTxt_nome_artista().getText().trim();
         
         try (Connection conn = conexao.getConnection()) {
             ArtistaDAO aDAO = new ArtistaDAO(conn);
@@ -53,7 +53,7 @@ public class ControllerArtista {
     
     public void excluirArtista() {
         Conexao conexao = new Conexao();
-        String nome_artista = view.getTxt_nome_artista().getText();
+        String nome_artista = view.getTxt_nome_artista().getText().trim();
         
         try (Connection conn = conexao.getConnection()) {
             ArtistaDAO aDAO = new ArtistaDAO(conn);

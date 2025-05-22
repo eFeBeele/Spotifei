@@ -21,7 +21,7 @@ public class ArtistaDAO {
     public void inserir(String nome_digitado) throws SQLException, ErroInesperado, InfoNula{
         String consulta = "SELECT nome_artista FROM artista WHERE nome_artista = ?";
         PreparedStatement busca = conn.prepareStatement(consulta);
-        busca.setString(1, nome_digitado);
+        busca.setString(1, nome_digitado.trim());
         busca.execute();
         
         ResultSet consultaNome = busca.getResultSet();
